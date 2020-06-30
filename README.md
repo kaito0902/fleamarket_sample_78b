@@ -58,6 +58,7 @@ Things you may want to cover:
 |day|references|null: false, foreign_key: true|
 |price|integer|null: false|
 |image|references|null: false, foreign_key: true|
+|user|references|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :user
