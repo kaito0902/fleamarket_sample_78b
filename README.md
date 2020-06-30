@@ -39,7 +39,6 @@ Things you may want to cover:
 |birthday_month|date|null: false|
 |birthday_day|date|null: false|
 |tel|string|unique: true|
-|address|references|null: false, foreign_key: true|
 
 ### Association
 - has_many :products
@@ -103,6 +102,7 @@ Things you may want to cover:
 ## delivery_chargesテーブル
 |Column|Type|Options|
 |------|----|-------|
+|product|references|null: false|
 |charge_rule|string|null: false|
 
 ### Association
@@ -111,7 +111,7 @@ Things you may want to cover:
 ## imagesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|product|references|null: false|
+|product|references|null: false, foreign_key: true|
 |url|string|null: false|
 
 ### Association
