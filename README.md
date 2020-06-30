@@ -38,7 +38,7 @@ Things you may want to cover:
 |birthday_year|date|null: false|
 |birthday_month|date|null: false|
 |birthday_day|date|null: false|
-|tel|integer|unique: true|
+|tel|string|unique: true|
 |address|references|null: false, foreign_key: true|
 
 ### Association
@@ -73,10 +73,8 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |user|references|null: false, foreign_key: true|
-|card_number|integer|null: false, unique: true|
-|expiration_year|integer|null: false|
-|expiration_month|integer|null: false|
-|security_code|integer|null: false|
+|customer_id|string|null: false|
+|card_id|string|null: false|
 
 ### Association
 - belongs_to :user
@@ -127,6 +125,7 @@ Things you may want to cover:
 
 ### Association
 - has_many :products
+- has_ancestry
 
 ## brandsテーブル
 |Column|Type|Options|
