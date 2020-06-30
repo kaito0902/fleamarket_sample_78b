@@ -44,33 +44,94 @@ Things you may want to cover:
 ### Association
 - has_many :products
 - has_one :credit_card, dependent: :destroy
+- has_one :address, dependent: :destroy
 
 
 ## productsテーブル
 |Column|Type|Options|
 |------|----|-------|
+|user|references|null: false, foreign_key: true|
 |name|string|null: false|
 |description|text|null: false|
 |condition|references|null: false, foreign_key: true|
 |category|references|null: false, foreign_key: true|
+|brand|references|null: false, foreign_key: true|
 |delivery_charge|references|null: false, foreign_key: true|
-|area|references|null: false, foreign_key: true|
-|day|references|null: false, foreign_key: true|
+|prefecture|string|null: false|
+|day|string|null: false|
 |price|integer|null: false|
-|image|references|null: false, foreign_key: true|
-|user|references|null: false, foreign_key: true|
 
 ### Association
+- has_many :images
+- belongs_to :category
+- belongs_to :brand
+- belongs_to :delivery_charge
+- belongs_to :condition
 - belongs_to :user
 
-## Credit_cardsテーブル
+## credit_cardsテーブル
 |Column|Type|Options|
 |------|----|-------|
+|user|references|null: false, foreign_key: true|
 |card_number|integer|null: false, unique: true|
 |expiration_year|integer|null: false|
 |expiration_month|integer|null: false|
 |security_code|integer|null: false|
-|user|references|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :user
+
+## adressesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|user|references|null: false, foreign_key: true|
+|post_code|integer|null: false|
+|prefecture|string|null: false|
+|city|string|null: false|
+|house_number|integer|null: false|
+|building_name|string|null: false|
+
+### Association
+- belongs_to :user
+
+## conditionsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|status|string|null: false|
+
+### Association
+- has_many :products
+
+## delivery_chargesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|charge_rule|string|null: false|
+
+### Association
+- belongs_to :product
+
+## imagesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|product|references|null: false|
+|url|string|null: false|
+
+### Association
+- belongs_to :product
+
+## categorysテーブル
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false|
+|ancestry|integer|null: false|
+
+### Association
+- has_many :products
+
+## brandsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false|
+
+### Association
+- has_many :products
