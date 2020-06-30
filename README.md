@@ -102,7 +102,7 @@ Things you may want to cover:
 ## delivery_chargesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|product|references|null: false|
+|product|references|null: false, foreign_key: true|
 |charge_rule|string|null: false|
 
 ### Association
