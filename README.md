@@ -81,7 +81,7 @@ Things you may want to cover:
 ### Association
 - belongs_to :user
 
-## adressesテーブル
+## addressesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |user|references|null: false, foreign_key: true|
@@ -119,7 +119,7 @@ Things you may want to cover:
 ### Association
 - belongs_to :product
 
-## categorysテーブル
+## categoriesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
