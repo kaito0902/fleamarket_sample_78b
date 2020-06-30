@@ -74,7 +74,7 @@ Things you may want to cover:
 |------|----|-------|
 |user|references|null: false, foreign_key: true|
 |customer_id|string|null: false|
-|card_id|string|null: false|
+|card_token|string|null: false|
 
 ### Association
 - belongs_to :user
