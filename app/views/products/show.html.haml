@@ -57,12 +57,34 @@
             %th 
               発送日の目安
             %td 
-              明日発送
-        
+              明日発送       
       .product__topContent__itemBox__buttonBox
-        .product__topContent__itemBox__buttonBox_leftBotton
+        .product__topContent__itemBox__buttonBox__leftBotton
           %i.fa.fa-star
           お気に入り 1
-        .product__topContent__itemBox__buttonBox_rightBotton
+        .product__topContent__itemBox__buttonBox__rightBotton
           %i.fa.fa-flag
           不適切な商品の通報
+    .product__topContent__commentBox
+      %textarea.product__topContent__commentBox__text
+      .product__topContent__commentBox__caution
+        相手のことを考え丁寧なコメントを心がけましょう。
+        %br     
+        不快な言葉遣いなどは利用制限や退会処分となることがあります。
+      %button.product__topContent__commentBox__submit
+        %i.fa.fa-comment     
+        コメントする
+  .product__topContent__link
+    .product__topContent__link__previous
+      < 前の商品
+    .product__topContent__link__after
+      後ろの商品 >
+  .product__userRelated
+    .product__userRelated__userName
+      杉本さんをもっと見る
+    .product__userRelated__productsBox
+      = render 'userRelated'
+      = render 'userRelated'
+      = render 'userRelated'
+      = render 'userRelated'
+      = render 'userRelated'
