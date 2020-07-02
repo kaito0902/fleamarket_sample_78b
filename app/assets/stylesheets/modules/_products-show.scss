@@ -1,0 +1,49 @@
+.product{
+  background: #f8f8f8;
+  &__topContent{
+    padding: 40px;
+    margin: 0 auto;
+    &__itemBox{
+      width: 700px;
+      margin: 0 auto;
+      background-color: #fff;
+      padding: 24px 40px 40px;
+      &__name{
+        text-align: center;
+        font-weight: bold;
+        font-size: 24px;
+      }
+      &__imageBox{
+        margin-top: 10px;
+        &__mainImage{
+          object-fit: cover;
+          width: 100%;
+          height: 350px;
+        }
+        &__subImages{
+          margin-top: 10px;
+          display: flex;
+          justify-content: center;
+          &__subImage{
+            object-fit: cover;
+            height: 85px;
+            width: 25%;
+          }
+        }
+      }
+      &__priceBox{
+        margin-top: 20px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        &__price{
+          font-size: 45px;
+          font-weight: bold;
+        }
+        &__tax{
+          font-size: 15px;
+        }
+      }
+    }
+  }
+}
