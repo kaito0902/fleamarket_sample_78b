@@ -2,7 +2,7 @@ class ProductsController < ApplicationController
 
   def index
     @products = Product.all
-    @images = Image.find
+    @images = Image.all
   end
 
   def show
