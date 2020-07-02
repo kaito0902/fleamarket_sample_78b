@@ -2,4 +2,8 @@
   - @products.each do |product|
     = product.name
     = product.price
-    -# = render partial: "product", locals: { product: product }
+
+
+  .prodct_list_display_image
+    - @images.each do |image|
+      = image_tag image.url[0], resize: '188x188'
