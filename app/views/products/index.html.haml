@@ -8,8 +8,10 @@
       .header__contents__main__searchBox
         = form_with(url: "#", local: true, class: "header__contents__main__searchBox__forms") do |form|
           = form.text_field :keyword, placeholder: "キーワードから探す", class: "header__contents__main__searchBox__forms--form"
-          -# バックグラウンドイメージでやってみる
           = form.submit "検索", class: "header__contents__main__searchBox__forms--submit"
+          -# = form.label :submit, class: "header__contents__main__searchBox__forms--submit" do
+          -#   = icon('fas', 'search', class: "header__contents__main__searchBox__forms--submit--btn")
+          -#   = form.submit :submit, class: "Hidden"
     .header__contents__sub
       %ul.header__contents__sub__leftLists
         %li.header__contents__sub__leftLists__list
@@ -84,4 +86,151 @@
           = image_tag "app-store-9c5e28e8f81bd9912e0ded2f78821e04778a1356c05dc7c7bf1e88614be37c34.svg"
         = link_to class: "topMain__download__inner__btn--googleBtn" do
           = image_tag"google-play-469c63f1269e456307c4dde176b33cc3bbbbf142ac4d7369656010130149db1a.svg"
+  -# 特徴-----------------------------------------------
+  .topMain__features
+    .topMain__features__subtitle
+      FURIMAの特徴
+    .topMain__features__lists
+      .topMain__features__lists__list
+        .topMain__features__lists__list__image
+          = image_tag "icon/icon-01.png", size:'220x338'
+        .topMain__features__lists__list__subtitle
+          %p 簡単に売り買いできる
+        .topMain__features__lists__list__detail
+          %p スマホひとつで、いつでもどこでも簡単に出品・購入が可能！
+      .topMain__features__lists__list
+        .topMain__features__lists__list__image
+          = image_tag "icon/icon-03.png", size:'220x338'
+        .topMain__features__lists__list__subtitle
+          %p 売上金は即日振込みに対応
+        .topMain__features__lists__list__detail
+          %p 午前9時までに振込を依頼いただければ、翌日に指定の口座に入金いたします
+      .topMain__features__lists__list
+        .topMain__features__lists__list__image
+          = image_tag "icon/icon-04.png", size:'220x338'
+        .topMain__features__lists__list__subtitle
+          %p 様々な支払いに対応
+        .topMain__features__lists__list__detail
+          %p お支払いは、クレジットカードだけでなく、ポイントや売上金など多彩な方法があります。
+  -# 商品一覧---------------------------------------------
+  .topMain__container
+    .topMain__container__head
+      %p 商品一覧
+    .topMain__container__productBox
+      .topMain__container__productBox__head
+        = link_to "新規投稿商品", "#"
+      .topMain__container__productBox__lists
+        .topMain__container__productBox__lists__list
+          = link_to "#" do
+            .topMain__container__productBox__lists__list__image
+              = image_tag "icon/icon-01.png", size: '220x150'
+            .topMain__container__productBox__lists__list__body
+              %p.topMain__container__productBox__lists__list__body__name
+                Product1
+              .topMain__container__productBox__lists__list__body__box
+                %p 1000円
+                .topMain__container__productBox__lists__list__body__box--like
+                  = icon('fas', 'star')
+                  1
+              %p.topMain__container__productBox__lists__list__body__tax
+                (税込)
+        .topMain__container__productBox__lists__list
+          = link_to "#" do
+            .topMain__container__productBox__lists__list__image
+              = image_tag "icon/icon-02.png", size: '220x150'
+            .topMain__container__productBox__lists__list__body
+              %p.topMain__container__productBox__lists__list__body__name
+                Product2
+              .topMain__container__productBox__lists__list__body__box
+                %p 2000円
+                .topMain__container__productBox__lists__list__body__box--like
+                  = icon('fas', 'star')
+                  1
+              %p.topMain__container__productBox__lists__list__body__tax
+                (税込)
+        .topMain__container__productBox__lists__list
+          = link_to "#" do
+            .topMain__container__productBox__lists__list__image
+              = image_tag "icon/icon-03.png", size: '220x150'
+            .topMain__container__productBox__lists__list__body
+              %p.topMain__container__productBox__lists__list__body__name
+                Product3
+              .topMain__container__productBox__lists__list__body__box
+                %p 3000円
+                .topMain__container__productBox__lists__list__body__box--like
+                  = icon('fas', 'star')
+                  1
+              %p.topMain__container__productBox__lists__list__body__tax
+                (税込)
+        .topMain__container__productBox__lists__list
+          = link_to "#" do
+            .topMain__container__productBox__lists__list__image
+              = image_tag "icon/icon-04.png", size: '220x150'
+            .topMain__container__productBox__lists__list__body
+              %p.topMain__container__productBox__lists__list__body__name
+                Product4
+              .topMain__container__productBox__lists__list__body__box
+                %p 4000円
+                .topMain__container__productBox__lists__list__body__box--like
+                  = icon('fas', 'star')
+                  1
+              %p.topMain__container__productBox__lists__list__body__tax
+                (税込)
 
+
+
+  -# バナー------------------------------------------------
+  .topMain__banner
+    .topMain__banner__inner
+      .topMain__banner__inner__title
+        %p だれでもかんたん、人生を変えるフリマアプリ
+      .topMain__banner__inner__text
+        %p 今すぐ無料ダウンロード！
+      .topMain__banner__inner__btn
+        = link_to class: "topMain__banner__inner__btn--appleBtn" do
+          = image_tag "app-store-9c5e28e8f81bd9912e0ded2f78821e04778a1356c05dc7c7bf1e88614be37c34.svg"
+        = link_to class: "topMain__banner__inner__btn--googleBtn" do
+          = image_tag "google-play-469c63f1269e456307c4dde176b33cc3bbbbf142ac4d7369656010130149db1a.svg"
+-# フッター------------------------------------------------
+%footer.footer
+  %ul.footer__contents
+    .footer__contents__content
+      .footer__contents__content__head
+        %p FURIMAについて
+      %ul
+        %li
+          = link_to "会社概要（運営会社)", "#"
+        %li
+          = link_to "プライバシーポリシー", "#"
+        %li
+          = link_to "FURIMA利用規約", "#"
+        %li
+          = link_to "ポイントに関する特約", "#"
+    .footer__contents__content
+      .footer__contents__content__head
+        %p FURIMAを見る
+      %ul
+        %li
+          = link_to "カテゴリー一覧", "#"
+        %li
+          = link_to "ブランド一覧", "#"
+    .footer__contents__content
+      .footer__contents__content__head
+        %p ヘルプ＆ガイド
+      %ul
+        %li
+          = link_to "FURIMAガイド", "#"
+        %li
+          = link_to "FURIMAロゴ利用ガイドライン", "#"
+        %li
+          = link_to "お知らせ", "#"
+  .footer__logo
+    = link_to root_path do
+      = image_tag "logo/logo-white.png", size:'160x46'
+  %p.footer__copy © FURIMA
+-# 出品アイコン---------------------------------------------
+.displayIcon
+  = link_to "#" do
+    %span.displayIcon__text
+      出品する
+    = image_tag "icon/icon_camera.png"
