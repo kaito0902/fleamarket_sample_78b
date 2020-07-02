@@ -1,0 +1,25 @@
+-# ヘッダー----------------------------------
+%header.header
+  .header__contents
+    .header__contents__main
+      .header__contents__main__icon
+        = link_to root_path, class: "header__contents__main__icon--image" do
+          = image_tag "logo/logo.png", size: '140x40'
+      .header__contents__main__searchBox
+        = form_with(url: "#", local: true, class: "header__contents__main__searchBox__forms") do |form|
+          = form.text_field :keyword, placeholder: "キーワードから探す", class: "header__contents__main__searchBox__forms--form"
+          = form.submit "検索", class: "header__contents__main__searchBox__forms--submit"
+          -# = form.label :submit, class: "header__contents__main__searchBox__forms--submit" do
+          -#   = icon('fas', 'search', class: "header__contents__main__searchBox__forms--submit--btn")
+          -#   = form.submit :submit, class: "Hidden"
+    .header__contents__sub
+      %ul.header__contents__sub__leftLists
+        %li.header__contents__sub__leftLists__list
+          = link_to "カテゴリー", "#"
+        %li.header__contents__sub__leftLists__list
+          = link_to "ブランド", "#"
+      %ul.header__contents__sub__rightLists
+        %li.header__contents__sub__rightLists__list
+          = link_to "ログイン", "#"
+        %li.header__contents__sub__rightLists__list
+          = link_to "新規会員登録", "#"
