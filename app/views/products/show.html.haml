@@ -1,0 +1,90 @@
+.product
+  .product__topContent
+    .product__topContent__itemBox
+      .product__topContent__itemBox__name
+        杉本
+      .product__topContent__itemBox__imageBox
+        =image_tag "tume_019.jpg", class: "product__topContent__itemBox__imageBox__mainImage"
+        .product__topContent__itemBox__imageBox__subImages
+          =image_tag "51XSiYjXsXL._AC_.jpg", class: "product__topContent__itemBox__imageBox__subImages__subImage"
+          =image_tag "7e5638e90e12ec31f75a5672aef13138.jpg", class: "product__topContent__itemBox__imageBox__subImages__subImage"
+          =image_tag "efffef.jpg", class: "product__topContent__itemBox__imageBox__subImages__subImage"
+      .product__topContent__itemBox__priceBox
+        .product__topContent__itemBox__priceBox__price
+          ￥10000
+        .product__topContent__itemBox__priceBox__tax
+          (税込) 送料込み
+      .product__topContent__itemBox__description
+        いろはにほへと ちりぬるを わかよたれそ つねならむ うゐのおくやま けふこえて あさきゆめみし
+      %table.product__topContent__itemBox__table
+        %tbody
+          %tr
+            %th 
+              出品者
+            %td 
+              私
+          %tr
+            %th 
+              カテゴリー
+            %td 
+              メンズ
+          %tr
+            %th 
+              ブランド
+            %td 
+              kabaya
+          %tr
+            %th 
+              商品のサイズ
+            %td 
+              100個
+          %tr
+            %th 
+              商品の状態
+            %td 
+              未開封
+          %tr
+            %th 
+              配送料の負担
+            %td 
+              自分持ち
+          %tr
+            %th 
+              発送元の地域
+            %td 
+              山形
+          %tr
+            %th 
+              発送日の目安
+            %td 
+              明日発送       
+      .product__topContent__itemBox__buttonBox
+        .product__topContent__itemBox__buttonBox__leftBotton
+          %i.fa.fa-star
+          お気に入り 1
+        .product__topContent__itemBox__buttonBox__rightBotton
+          %i.fa.fa-flag
+          不適切な商品の通報
+    .product__topContent__commentBox
+      %textarea.product__topContent__commentBox__text
+      .product__topContent__commentBox__caution
+        相手のことを考え丁寧なコメントを心がけましょう。
+        %br     
+        不快な言葉遣いなどは利用制限や退会処分となることがあります。
+      %button.product__topContent__commentBox__submit
+        %i.fa.fa-comment     
+        コメントする
+  .product__topContent__link
+    .product__topContent__link__previous
+      < 前の商品
+    .product__topContent__link__after
+      後ろの商品 >
+  .product__userRelated
+    .product__userRelated__userName
+      杉本さんをもっと見る
+    .product__userRelated__productsBox
+      = render 'userRelated'
+      = render 'userRelated'
+      = render 'userRelated'
+      = render 'userRelated'
+      = render 'userRelated'
