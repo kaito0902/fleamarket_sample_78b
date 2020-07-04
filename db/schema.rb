@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_02_035600) do
+ActiveRecord::Schema.define(version: 2020_07_04_110512) do
 
   create_table "brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -73,7 +73,7 @@ ActiveRecord::Schema.define(version: 2020_07_02_035600) do
     t.string "last_name", null: false
     t.string "first_name_kana", null: false
     t.string "last_name_kana", null: false
-    t.date "birthday_year"
+    t.date "birthday_year", null: false
     t.date "birthday_month", null: false
     t.date "birthday_day", null: false
     t.string "tel"
@@ -86,7 +86,6 @@ ActiveRecord::Schema.define(version: 2020_07_02_035600) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "images", "products"
   add_foreign_key "products", "brands"
   add_foreign_key "products", "categories"
   add_foreign_key "products", "conditions"
