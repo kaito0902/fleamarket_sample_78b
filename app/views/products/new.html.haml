@@ -1,0 +1,97 @@
+.sell
+  .sell__header
+    = image_tag 'logo.png', alt: '写真', height: '60px', width: '200px', class: 'icon'
+  .sell__body
+    = form_with(model: @products, local: true) do |f|
+      .sell__body__form
+        .formgroup__image
+          %h3.name 
+            出品画像
+            %span.name__caution 
+              必須
+            %label.upload__img
+            %p 最大10枚までアップロードできます
+            .image__form
+              .input
+                %label.upload__label
+                  %p.text クリックしてファイルをアップロード
+                  .upload__label__none
+                    = f.fields_for :images do |image|
+                      = image.file_field :product_image, id: "sell-img"
+        %hr.sell__body__form__border
+        .formgroup__content
+          .formgroup__content__content
+            %h3.name
+              商品名
+              %span.name__caution 
+                必須
+            = f.text_field :name, class: "formgroup__content__content__box", placeholder: "40文字まで"
+          .formgroup__description
+            %h3.name 
+              商品説明
+              %span.name__caution 
+                必須
+            = f.text_field :description, class: "formgroup__description__box", placeholder: "商品の説明"
+        %hr.sell__body__form__border
+        .formgroup__categories
+          .formgroup__categories__categories
+            %h3.name 
+              カテゴリー
+              %span.name__caution 
+                必須
+            = f.collection_select :category_id, Categorie.all, :id, :name, include_blank: "選択して下さい"
+          .formgroup__brand
+            %h3.name 
+              ブランド
+              %span.name__caution 
+                任意
+            = f.text_field :brand, class: "formgroup__brand__box", placeholder: "例)シャネル"
+          .formgroup__status
+            %h3.name 
+              商品の状態
+              %span.name__caution 
+                必須
+            = f.collection_select :condition_id, Condition.all, :id, :status, include_blank: "選択して下さい"
+        %hr.sell__body__form__border
+        .formgroup__delivery
+          .formgroup__delivery__delivery
+            %h3.name 
+              配送料の負担
+              %span.name__caution 
+                必須
+            = f.collection_select :delivery_charge_id, DeliveryCharge.all, :id, :charge_rule, include_blank: "選択して下さい"
+          .formgroup__prefecture
+            %h3.name 
+              発送元の地域
+              %span.name__caution 
+                必須
+            = f.collection_select :prefecture, Product.all, :id, :prefecture, include_blank: "選択して下さい"
+          .formgroup__day
+            %h3.name 
+              発送までの日数
+              %span.name__caution 
+                必須
+            = f.collection_select :day, Product.all, :id, :day, include_blank: "選択して下さい"
+        %hr.sell__body__form__border
+        .formgroup__price
+          %h3.name 
+            販売価格
+            %span.name__caution 
+              必須
+          %span.price__icon
+            ¥
+          = f.text_field :price, class: "formgroup__price__box", placeholder: "300以上9999999以下で入力してください"
+          %hr.sell__body__form__border
+          .product_price-fee
+            販売手数料(10%)
+            .right_bar
+          
+          .product_profit
+            販売利益
+        .submit-button
+          .actions
+            =f.submit "出品する",class:"btn--red"
+          =link_to "もどる",products_path,class:"btn--gray"
+        .prohibition
+          %p.prohibition__action
+            禁止されている行為および出品物を必ずご確認ください。偽ブランド品や盗品物などの販売は犯罪であり、法律により処罰される可能性があります。 また、出品をもちまして加盟店規約に同意したことになります。
