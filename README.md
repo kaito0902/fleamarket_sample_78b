@@ -35,9 +35,9 @@ Things you may want to cover:
 |last_name|string|null: false|
 |first_name_kana|string|null: false|
 |last_name_kana|string|null: false|
-|birthday_year|date|null: false|
-|birthday_month|date|null: false|
-|birthday_day|date|null: false|
+|birthday_year|integer|null: false|
+|birthday_month|integer|null: false|
+|birthday_day|integer|null: false|
 |tel|string|unique: true|
 
 ### Association

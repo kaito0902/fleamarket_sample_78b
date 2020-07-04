@@ -13,4 +13,10 @@ class ProductsController < ApplicationController
     @image = Image.find(params[:id])
     @images = Image.find(@image.product_id)
   end
+
+  def new
+    @products = Product.new
+  end
+
+
 end

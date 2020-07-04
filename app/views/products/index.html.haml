@@ -1,1 +1,155 @@
-トップページ
+= render "header" 
+-# メインラッパー------------------------------------
+.topMain
+  -# メインビジュアル---------------------------------
+  .topMain__visual
+    .topMain__visual__contents
+      .topMain__visual__contents__subtitle
+        %br
+        人生を変えるフリマアプリ
+      .topMain__visual__contents__text
+        %br
+        %p FURIMAはだれでもかんたんに出品・購入できる
+        %p フリマアプリです
+      .topMain__visual__contents__btn
+        = link_to class: "topMain__visual__contents__btn--appleBtn" do
+          = image_tag "app-store-9c5e28e8f81bd9912e0ded2f78821e04778a1356c05dc7c7bf1e88614be37c34.svg"
+        = link_to class: "topMain__visual__contents__btn--googleBtn" do
+          = image_tag"google-play-469c63f1269e456307c4dde176b33cc3bbbbf142ac4d7369656010130149db1a.svg"
+  -# イントロダクション--------------------------------
+  .topMain__intro
+    .topMain__intro__subtitle
+      FURIMAが選ばれる3つの理由
+    %ul.topMain__intro__lists
+      %li.topMain__intro__lists__list
+        .topMain__intro__lists__list__picture
+          %sapn.topMain__intro__lists__list__picture--number 1
+          = image_tag "pict/pict-reason-01.jpg", size: '306x306'
+        .topMain__intro__lists__list__text
+          %span 3分で 
+          すぐに出品
+        .topMain__intro__lists__list__description
+          スマホで入力するだけで簡単に出品できる！
+      %li.topMain__intro__lists__list
+        .topMain__intro__lists__list__picture
+          %sapn.topMain__intro__lists__list__picture--number 2
+          = image_tag "pict/pict-reason-02.jpg", size: '306x306'
+        .topMain__intro__lists__list__text
+          %span シンプル
+          で使いやすい
+        .topMain__intro__lists__list__description
+          めんどくさい入力は必要なく、検索も購入もスムーズ！
+      %li.topMain__intro__lists__list
+        .topMain__intro__lists__list__picture
+          %sapn.topMain__intro__lists__list__picture--number 3
+          = image_tag "pict/pict-reason-03.jpg", size: '306x306'
+        .topMain__intro__lists__list__text
+          手数料
+          %span 業界最安 
+        .topMain__intro__lists__list__description
+          最大3%でお得に出品&購入！
+  -# ダウンロード---------------------------------------
+  .topMain__download
+    .topMain__download__inner
+      .topMain__download__inner__subtitle
+        %p 会員数日本一位
+      .topMain__download__inner__text
+        %p FURIMAは、フリマアプリで最も人気。
+        %p 出品・購入回数も業界最多です！
+        %p ほしかったあの商品に出会えるかもしれません。
+      .topMain__download__inner__btn
+        = link_to class: "topMain__download__inner__btn--appleBtn" do
+          = image_tag "app-store-9c5e28e8f81bd9912e0ded2f78821e04778a1356c05dc7c7bf1e88614be37c34.svg"
+        = link_to class: "topMain__download__inner__btn--googleBtn" do
+          = image_tag"google-play-469c63f1269e456307c4dde176b33cc3bbbbf142ac4d7369656010130149db1a.svg"
+  -# 特徴-----------------------------------------------
+  .topMain__features
+    .topMain__features__subtitle
+      FURIMAの特徴
+    .topMain__features__lists
+      .topMain__features__lists__list
+        .topMain__features__lists__list__image
+          = image_tag "icon/icon-01.png", size:'220x338'
+        .topMain__features__lists__list__subtitle
+          %p 簡単に売り買いできる
+        .topMain__features__lists__list__detail
+          %p スマホひとつで、いつでもどこでも簡単に出品・購入が可能！
+      .topMain__features__lists__list
+        .topMain__features__lists__list__image
+          = image_tag "icon/icon-03.png", size:'220x338'
+        .topMain__features__lists__list__subtitle
+          %p 売上金は即日振込みに対応
+        .topMain__features__lists__list__detail
+          %p 午前9時までに振込を依頼いただければ、翌日に指定の口座に入金いたします
+      .topMain__features__lists__list
+        .topMain__features__lists__list__image
+          = image_tag "icon/icon-04.png", size:'220x338'
+        .topMain__features__lists__list__subtitle
+          %p 様々な支払いに対応
+        .topMain__features__lists__list__detail
+          %p お支払いは、クレジットカードだけでなく、ポイントや売上金など多彩な方法があります。
+  -# 商品一覧---------------------------------------------
+  .topMain__container
+    .topMain__container__head
+      %p 商品一覧
+    .topMain__container__productBox
+      .topMain__container__productBox__head
+        = link_to "新規投稿商品", "#"
+      .topMain__container__productBox__lists
+        .topMain__container__productBox__lists__list
+          = link_to "#" do
+            .topMain__container__productBox__lists__list__image
+              = image_tag "icon/icon-01.png", size: '220x150'
+            .topMain__container__productBox__lists__list__body
+              %p.topMain__container__productBox__lists__list__body__name
+                Product1
+              .topMain__container__productBox__lists__list__body__box
+                %p 1000円
+                .topMain__container__productBox__lists__list__body__box--like
+                  = icon('fas', 'star')
+                  1
+              %p.topMain__container__productBox__lists__list__body__tax
+                (税込)
+        .topMain__container__productBox__lists__list
+          = link_to "#" do
+            .topMain__container__productBox__lists__list__image
+              = image_tag "icon/icon-02.png", size: '220x150'
+            .topMain__container__productBox__lists__list__body
+              %p.topMain__container__productBox__lists__list__body__name
+                Product2
+              .topMain__container__productBox__lists__list__body__box
+                %p 2000円
+                .topMain__container__productBox__lists__list__body__box--like
+                  = icon('fas', 'star')
+                  1
+              %p.topMain__container__productBox__lists__list__body__tax
+                (税込)
+        .topMain__container__productBox__lists__list
+          = link_to "#" do
+            .topMain__container__productBox__lists__list__image
+              = image_tag "icon/icon-03.png", size: '220x150'
+            .topMain__container__productBox__lists__list__body
+              %p.topMain__container__productBox__lists__list__body__name
+                Product3
+              .topMain__container__productBox__lists__list__body__box
+                %p 3000円
+                .topMain__container__productBox__lists__list__body__box--like
+                  = icon('fas', 'star')
+                  1
+              %p.topMain__container__productBox__lists__list__body__tax
+                (税込)
+        .topMain__container__productBox__lists__list
+          = link_to "#" do
+            .topMain__container__productBox__lists__list__image
+              = image_tag "icon/icon-04.png", size: '220x150'
+            .topMain__container__productBox__lists__list__body
+              %p.topMain__container__productBox__lists__list__body__name
+                Product4
+              .topMain__container__productBox__lists__list__body__box
+                %p 4000円
+                .topMain__container__productBox__lists__list__body__box--like
+                  = icon('fas', 'star')
+                  1
+              %p.topMain__container__productBox__lists__list__body__tax
+                (税込)
+=render "footer"
