@@ -52,6 +52,7 @@ Things you may want to cover:
 |user|references|null: false, foreign_key: true|
 |name|string|null: false|
 |description|text|null: false|
+|image|string|null: false|
 |condition|references|null: false, foreign_key: true|
 |category|references|null: false, foreign_key: true|
 |brand|references|null: false, foreign_key: true|
@@ -59,6 +60,7 @@ Things you may want to cover:
 |prefecture|string|null: false|
 |day|string|null: false|
 |price|integer|null: false|
+|seller|references|null: false, foreign_key: true|
 
 ### Association
 - has_many :images
