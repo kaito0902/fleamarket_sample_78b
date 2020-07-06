@@ -6,7 +6,7 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
     @products = Product.where(user_id:params[:id])
     @user = @product.user
-    @category = Categorie.find(@product.category_id)
+    @category = @product.category
     @brand = @product.brand
     @condition = @product.condition
     @delivery_charge = @product.delivery_charge
