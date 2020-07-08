@@ -2,56 +2,6 @@
   display: none;
 }
 
-.category__icon,.brands__icon{
-  color: #3CCACE;
-}
-
-.category__title{
-  text-decoration: none;
-  font-weight: bold;
-  color: black;
-}
-
-// カテゴリーの大枠の要素の共通項
-.category__list{
-  position: absolute;
-  height: 573px;
-  background-color: white;
-  border-right: 1px solid whitesmoke;
-}
-
-// 子要素はカテゴリー名の共通項
-.category__child--name{
-  width: 100%;
-  color: black;
-  display: inline-block;
-  padding: 3px 15px;
-  font-size: 14px;
-  letter-spacing: 2px;
-  border-bottom: 1px solid whitesmoke;
-}
-
-.category__parent--name{
-  border-bottom: 1px solid whitesmoke;
-}
-
-.category__parent--name:hover{
-  background-color: #3CCACE;
-  span{
-    // color:#3CCACE;
-    color: white;
-    font-weight: bold;
-  }
-}
-.category__child--name:hover{
-  background-color: #3CCACE;
-  span{
-    // color:#3CCACE;
-    color: white;
-    font-weight: bold;
-  }
-}
-
 .categories{
   padding-bottom: 10px;
   margin-left: 20px;
@@ -92,5 +42,55 @@
         }
       }
     }
+  }
+}
+
+.category__head{
+  cursor: pointer;
+}
+
+.category__icon,.brands__icon{
+  color: #3CCACE;
+}
+
+.category__title{
+  text-decoration: none;
+  font-weight: bold;
+  color: black;
+}
+
+.category__list{
+  position: absolute;
+  height: 573px;
+  background-color: white;
+  border-right: 1px solid whitesmoke;
+}
+
+.category__child--name{
+  width: 100%;
+  color: black;
+  display: inline-block;
+  padding: 3px 15px;
+  font-size: 14px;
+  letter-spacing: 2px;
+  border-bottom: 1px solid whitesmoke;
+}
+
+.category__parent--name{
+  border-bottom: 1px solid whitesmoke;
+}
+
+.category__parent--name:hover{
+  background-color: #3CCACE;
+  span{
+    color: white;
+    font-weight: bold;
+  }
+}
+.category__child--name:hover{
+  background-color: #3CCACE;
+  span{
+    color: white;
+    font-weight: bold;
   }
 }
