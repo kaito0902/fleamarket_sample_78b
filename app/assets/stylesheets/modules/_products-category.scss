@@ -9,6 +9,23 @@
   a{
     text-decoration: none;
   }
+  &__head{
+    cursor: pointer;
+    &--icon{
+      color: #3CCACE;
+    }
+    &--title{
+      text-decoration: none;
+      font-weight: bold;
+      color: black;
+    }
+  }
+  &__list{
+    position: absolute;
+    height: 573px;
+    background-color: white;
+    border-right: 1px solid whitesmoke;
+  }
   &:hover{
     .category__parent{
       top: 122px;
@@ -20,6 +37,15 @@
         padding: 10px 20px;
         font-size: 13px;
         letter-spacing: 2px;
+        border-bottom: 1px solid whitesmoke;
+        &:hover{
+          background-color: #3CCACE;
+          span{
+            color: white;
+            font-weight: bold;
+            text-shadow: 0 0 3px rgba(0,0,0,0.4);
+          }
+        }
       }
       li {
         &:hover{
@@ -28,6 +54,23 @@
             display: block;
             top: 0;
             left: 221px;
+            &--name{
+              width: 100%;
+              color: black;
+              display: inline-block;
+              padding: 3px 15px;
+              font-size: 14px;
+              letter-spacing: 2px;
+              border-bottom: 1px solid whitesmoke;
+              &:hover{
+                background-color: #3CCACE;
+                span{
+                  color: white;
+                  font-weight: bold;
+                  text-shadow: 0 0 3px rgba(0,0,0,0.4);
+                }
+              }
+            }
             li {
               &:hover{
                 .category__grandchild{
@@ -42,55 +85,5 @@
         }
       }
     }
-  }
-}
-
-.category__head{
-  cursor: pointer;
-}
-
-.category__icon,.brands__icon{
-  color: #3CCACE;
-}
-
-.category__title{
-  text-decoration: none;
-  font-weight: bold;
-  color: black;
-}
-
-.category__list{
-  position: absolute;
-  height: 573px;
-  background-color: white;
-  border-right: 1px solid whitesmoke;
-}
-
-.category__child--name{
-  width: 100%;
-  color: black;
-  display: inline-block;
-  padding: 3px 15px;
-  font-size: 14px;
-  letter-spacing: 2px;
-  border-bottom: 1px solid whitesmoke;
-}
-
-.category__parent--name{
-  border-bottom: 1px solid whitesmoke;
-}
-
-.category__parent--name:hover{
-  background-color: #3CCACE;
-  span{
-    color: white;
-    font-weight: bold;
-  }
-}
-.category__child--name:hover{
-  background-color: #3CCACE;
-  span{
-    color: white;
-    font-weight: bold;
   }
 }
