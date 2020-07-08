@@ -1,0 +1,108 @@
+.sign-up 
+  = form_with(model: @products, local: true) do |f|
+    .sign-up__wrapper
+      .sign-up__wrapper__header
+        = image_tag 'logo.png', alt: '写真', height: '90px', width: '200px', class: 'icon'
+      .sign-up__wrapper__body
+        .member-information
+          .name
+            会員情報入力
+          .member-information__user-nickname
+            .name
+              ニックネーム
+              .name__required
+                必須
+          = f.text_field :name, class: "member-information__user-nickname__box", placeholder: "例）フリマ太郎"
+          .member-information__email-address
+            .name
+              メールアドレス
+              .name__required
+                必須
+          .member-information__email-address__box
+            = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+              = render "devise/shared/error_messages",class:"email-btn", resource: resource 
+              = f.email_field :email,class:"email-btns", autocomplete: "email",placeholder:"email"
+          .member-information__password
+            .name
+              パスワード
+              .name__required
+                必須
+          .member-information__password__box      
+            = f.password_field :password, class:"member-information__password__box__btn",placeholder:"パスワード"
+          .member-information__password-confirmation
+            .name
+              パスワード(確認)      
+              .name__required
+                必須
+          .member-information__password-confirmation__box
+            = f.password_field :password, class:"member-information__password-confirmation__box__btn",placeholder:"パスワード"
+        .personal-information
+          .personal-information__message
+            .top
+              本人確認
+            .next
+              安心・安全にご利用いただくために、お客さまの本人
+              %br
+              情報の登録にご協力ください。他のお客さまに公開さ
+              %br
+              れることはありません。
+          .personal-information__user-name
+            .name
+              お名前（全角）
+              .name__required
+                必須
+            .name-box
+              .name-box__last-name
+                = f.text_field :name, class: "name-box__last-name_box", placeholder: "姓"
+              .name-box__first-name
+                = f.text_field :name, class: "name-box__first-name_box", placeholder: "名"
+          .personal-information__user-name__kana
+            .name
+              お名前（カナ）
+              .name__required
+                必須
+            .name-box
+              .name-box__last-name
+                = f.text_field :name, class: "name-box__last-name_box", placeholder: "セイ"
+              .name-box__first-name
+                = f.text_field :name, class: "name-box__first-name_box", placeholder: "メイ"
+          .personal-information__birthday
+            .name
+              生年月日
+              .name__required
+                必須
+            .personal-information__birthday__box
+              .personal-information__birthday__box__year
+              = f.collection_select :condition_id, Condition.all, :id, :status, include_blank: "選択して下さい"
+              .year
+                年
+              .personal-information__birthday__box__month
+              = f.collection_select :condition_id, Condition.all, :id, :status, include_blank: "選択して下さい"
+              .month
+                月
+              .personal-information__birthday__box__day
+              = f.collection_select :condition_id, Condition.all, :id, :status, include_blank: "選択して下さい"
+              .day
+                日
+          .personal-information__phone-number
+            .name
+              電話番号
+              .name__required
+                必須
+            .personal-information__phone-number__box
+              = f.text_field :name, class: "personal-information__phone-number__box__box", placeholder: "電話番号"
+        .register-box
+          .register-box__register-button
+            =f.submit "登録する",class:"btn--red"
+          .register-box__back-button   
+            =f.submit "戻る",class:"btn--blue"
+            
+        
+
+
+
+
+
+
+
+
