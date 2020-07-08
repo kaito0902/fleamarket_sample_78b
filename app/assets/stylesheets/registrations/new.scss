@@ -46,7 +46,7 @@
          
         }
       }
-      .member-information__user-nickname__box{
+      &__user-nickname__box{
         width:400px;
         height:50px;
         border-radius: 3px;
@@ -68,7 +68,7 @@
           }
         }
       }
-      .member-information__email-address__box{
+      &__email-address__box{
         .email-btn{
           width:400px;
         height:50px;
@@ -98,8 +98,8 @@
           }
         }
       }
-      .member-information__password__box{
-        .member-information__password__box__btn{
+      &__password__box{
+        &__btn{
           width:400px;
         height:50px;
         border-radius: 3px;
@@ -122,8 +122,8 @@
           }
         }
       }
-      .member-information__password-confirmation__box{
-        .member-information__password-confirmation__box__btn{
+      &__password-confirmation__box{
+        &__btn{
           width:400px;
         height:50px;
         border-radius: 3px;
@@ -167,15 +167,15 @@
         .name-box{
           display: flex;
           justify-content: center;
-          .name-box__last-name{
-            .name-box__last-name_box{
+          &__last-name{
+            &_box{
               margin:20px 10px 10px 10px;
               width:190px;
               height:50px;
             }
           }
-          .name-box__first-name{
-            .name-box__first-name_box{
+          &__first-name{
+            &_box{
               margin:20px 10px 10px 10px;
               width:190px;
               height:50px;
@@ -202,15 +202,15 @@
         .name-box{
           display: flex;
           justify-content: center;
-          .name-box__last-name{
-            .name-box__last-name_box{
+          &__last-name{
+            &_box{
               margin:20px 10px 10px 10px;
               width:190px;
               height:50px;
             }
           }
-          .name-box__first-name{
-            .name-box__first-name_box{
+          &__first-name{
+            &_box{
               margin:20px 10px 10px 10px;
               width:190px;
               height:50px;
@@ -218,7 +218,7 @@
           }
         }
       }
-    .personal-information__birthday{
+    &__birthday{
       .name{
         margin-top:20px;
         justify-content: center;
@@ -235,7 +235,7 @@
         }
       }
     }  
-    .personal-information__birthday__box{
+    &__birthday__box{
       display: flex;
       justify-content: center;
       margin-top: 20px;
@@ -272,8 +272,8 @@
           width:40px;
         }
       }
-      .personal-information__phone-number__box{
-        .personal-information__phone-number__box__box{
+      &__box{
+        &__box{
           width:400px;
         height:50px;
         border-radius: 3px;
@@ -284,7 +284,7 @@
     }
   }
   .register-box{
-    .register-box__register-button{
+    &__register-button{
       .btn--red{
         margin-top:50px;
         width:400px;
@@ -294,12 +294,12 @@
         border-radius: 3px;
       }
     }
-    .register-box__register-button{
+    &__register-button{
       .btn--red:hover{
         opacity: 0.6;
       }
     }
-    .register-box__back-button{
+    &__back-button{
       .btn--blue{
         margin:20px 0 30px 0;
         width:400px;
@@ -309,7 +309,7 @@
         border-radius: 3px;
       }
     }
-    .register-box__back-button{
+    &__back-button{
       .btn--blue:hover{
         opacity: 0.6;
       }
