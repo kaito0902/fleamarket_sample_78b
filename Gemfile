@@ -66,6 +66,10 @@ gem 'devise'
 gem 'rails-i18n'
 gem 'devise-i18n-views'
 gem 'pry-rails'
+gem 'rspec-rails', '~> 4.0.0.beta2'
+gem 'rails-controller-testing'
+gem 'factory_bot_rails'
+gem 'faker'
 
 group :production do
   gem 'unicorn'
