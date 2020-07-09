@@ -1,9 +1,40 @@
 @import "reset";
 @import "modules/products-index";
 @import "modules/products-show";
+@import "modules/addresses";
 @import "font-awesome-sprockets";
 @import "font-awesome";
 @import "new";
+@import "modules/flash";
+
 * {
   box-sizing: border-box;
+}
+
+.field_with_errors {
+  display: contents;
+}
+#error_explanation {
+  margin: 0 0 30px 0;
+  h2{
+    border: 1px solid red;
+    padding: 5px;
+    border-radius: 5px;
+    background-color: #F35500;
+    color: #fff;
+  }
+  ul {
+    border: 1px solid red;
+    border-radius: 5px;
+    background-color: #f8f8f8;
+    li{
+      list-style-type: disc;
+      margin-left: 24px;
+      text-align: left;
+      color: red;
+    }
+  }
+}
+.field_with_errors input{
+  border-color: red;
 }
