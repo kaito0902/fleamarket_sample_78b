@@ -85,9 +85,9 @@ ActiveRecord::Schema.define(version: 2020_07_08_025952) do
     t.string "last_name", null: false
     t.string "first_name_kana", null: false
     t.string "last_name_kana", null: false
-    t.date "birthday_year", null: false
-    t.date "birthday_month", null: false
-    t.date "birthday_day", null: false
+    t.integer "birthday_year", null: false
+    t.integer "birthday_month", null: false
+    t.integer "birthday_day", null: false
     t.string "tel"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
@@ -98,8 +98,8 @@ ActiveRecord::Schema.define(version: 2020_07_08_025952) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "images", "products"
   add_foreign_key "addresses", "users"
+  add_foreign_key "images", "products"
   add_foreign_key "products", "brands"
   add_foreign_key "products", "categories"
   add_foreign_key "products", "conditions"
