@@ -38,13 +38,13 @@ RSpec.describe Address, type: :model do
     it "post_codeがハイホンあり7文字では登録できないこと" do
       address= build(:address, post_code:"123-4567")
       address.valid?
-      expect(address.errors[:post_code]).to include("はハイホンなし7桁で入力して下さい")
+      expect(address.errors[:post_code]).to include("はハイフンなし7桁で入力して下さい")
     end
 
     it "post_codeがハイホンなし7文字以外では登録できないこと" do
       address= build(:address, post_code:"12345678")
       address.valid?
-      expect(address.errors[:post_code]).to include("はハイホンなし7桁で入力して下さい")
+      expect(address.errors[:post_code]).to include("はハイフンなし7桁で入力して下さい")
     end
   end
 end
