@@ -113,11 +113,11 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
+    devise-i18n-views (0.3.7)
     diff-lcs (1.4.4)
     erubi (1.9.0)
     erubis (2.7.0)
     excon (0.75.0)
-    devise-i18n-views (0.3.7)
     factory_bot (5.2.0)
       activesupport (>= 4.2.0)
     factory_bot_rails (5.2.0)
@@ -365,10 +365,10 @@ DEPENDENCIES
   capybara (>= 2.15)
   carrierwave
   devise
-  fog-aws
   devise-i18n-views
   factory_bot_rails
   faker
+  fog-aws
   font-awesome-sass
   haml-rails (>= 1.0, <= 2.0.1)
   jbuilder (~> 2.7)
