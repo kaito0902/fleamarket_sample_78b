@@ -8,7 +8,7 @@
           -# = image_tag "#{url.url}", class: "product__topContent__itemBox__imageBox__mainImage"
         .product__topContent__itemBox__imageBox__subImages
           -# - @product.images.drop(1).first(10).each do |url|
-          -#   = image_tag "#{url.url}", class: "product__topContent__itemBox__imageBox__subImages__subImage"     
+          -#   = image_tag "#{url.url}", class: "product__topContent__itemBox__imageBox__subImages__subImage"
       .product__topContent__itemBox__priceBox
         .product__topContent__itemBox__priceBox__price
           -# = @product.price
@@ -31,45 +31,45 @@
       %table.product__topContent__itemBox__table
         %tbody
           %tr
-            %th 
+            %th
               出品者
-            %td 
+            %td
               -# = @user.nickname
           %tr
-            %th 
+            %th
               カテゴリー
-            %td 
-              -# = @category.name
+            %td
+              = @category.name
           %tr
-            %th 
+            %th
               ブランド
-            %td 
+            %td
               -# = @brand.name
           %tr
-            %th 
+            %th
               商品のサイズ
-            %td 
+            %td
               100個
           %tr
-            %th 
+            %th
               商品の状態
-            %td 
+            %td
               -# = @condition.status
           %tr
-            %th 
+            %th
               配送料の負担
-            %td 
+            %td
               -# = @delivery_charge.charge_rule
           %tr
-            %th 
+            %th
               発送元の地域
-            %td 
+            %td
               -# = @product.prefecture
           %tr
-            %th 
+            %th
               発送日の目安
-            %td 
-              -# = @product.day      
+            %td
+              -# = @product.day
       .product__topContent__itemBox__buttonBox
         .product__topContent__itemBox__buttonBox__leftBotton
           %i.fa.fa-star
@@ -81,7 +81,7 @@
         .product__topContent__itemBox__userButtonBox--edit
           = link_to "#" do
             編集
-        .product__topContent__itemBox__userButtonBox--destroy   
+        .product__topContent__itemBox__userButtonBox--destroy
           = link_to "#" do
             削除
         -# ログイン機能が付いたら入れ替え
@@ -90,18 +90,18 @@
         -#    .product__topContent__itemBox__userButtonBox--edit
         -#       = link_to "編集ページ" do
         -#         編集
-        -#    .product__topContent__itemBox__userButtonBox--destroy   
+        -#    .product__topContent__itemBox__userButtonBox--destroy
         -#      = link_to "削除ページ" do
-        -#       削除   
+        -#       削除
 
     .product__topContent__commentBox
       %textarea.product__topContent__commentBox__text
       .product__topContent__commentBox__caution
         相手のことを考え丁寧なコメントを心がけましょう。
-        %br     
+        %br
         不快な言葉遣いなどは利用制限や退会処分となることがあります。
       %button.product__topContent__commentBox__submit
-        %i.fa.fa-comment     
+        %i.fa.fa-comment
         コメントする
   .product__topContent__link
     .product__topContent__link__previous
