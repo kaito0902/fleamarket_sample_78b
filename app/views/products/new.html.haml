@@ -1,8 +1,9 @@
 .sell
+  = render 'layouts/error', model: @product
   .sell__header
     = image_tag 'logo.png', alt: '写真', height: '60px', width: '200px', class: 'icon'
   .sell__body
-    = form_with(model: @products, local: true) do |f|
+    = form_with(model: @product, local: true) do |f|
       .sell__body__form
         .formgroup__image
           %h3.name 
@@ -11,13 +12,29 @@
               必須
             %label.upload__img
             %p 最大10枚までアップロードできます
+        #image-box
+          #previews
+            - if @product.persisted?
+              - @product.images.each_with_index do |image, i|
+                = image_tag image.src.url, data: { index: i }, width: "100", height: '100'
+          = f.fields_for :images do |image|
             .image__form
               .input
                 %label.upload__label
                   %p.text クリックしてファイルをアップロード
                   .upload__label__none
-                    = f.fields_for :images do |image|
-                      = image.file_field :product_image, id: "sell-img"
+                    .js-file_group{"data-index" => "#{image.index}"}
+                    = image.file_field :url, class: 'js-file'
+                    %br
+                    %span.js-remove 削除
+                  - if @product.persisted?
+                    = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
+                - if @product.persisted?
+                  .js-file_group{"data-index" => "#{@product.images.count}"}
+                    = file_field_tag :url, name: "product[images_attributes][#{@product.images.count}][src]", class: 'js-file'
+                    .js-remove
+                      = link_to '削除', product_path(@product), method: :delete
+
         %hr.sell__body__form__border
         .formgroup__content
           .formgroup__content__content
@@ -31,7 +48,7 @@
               商品説明
               %span.name__caution 
                 必須
-            = f.text_field :description, class: "formgroup__description__box", placeholder: "商品の説明"
+            = f.text_area :description, class: "formgroup__description__box", placeholder: "商品の説明"
         %hr.sell__body__form__border
         .formgroup__categories
           .formgroup__categories__categories
@@ -45,7 +62,7 @@
               ブランド
               %span.name__caution 
                 任意
-            = f.text_field :brand, class: "formgroup__brand__box", placeholder: "例)シャネル"
+            = f.text_field :brand_id, class: "formgroup__brand__box", placeholder: "例)シャネル"
           .formgroup__status
             %h3.name 
               商品の状態
@@ -65,13 +82,13 @@
               発送元の地域
               %span.name__caution 
                 必須
-            = f.collection_select :prefecture, Product.all, :id, :prefecture, include_blank: "選択して下さい"
+            = f.select :prefecture, Product.prefectures.keys, autocomplete: "prefecture", include_blank: "選択して下さい"
           .formgroup__day
             %h3.name 
               発送までの日数
               %span.name__caution 
                 必須
-            = f.collection_select :day, Product.all, :id, :day, include_blank: "選択して下さい"
+            = f.select :day, [["1〜2日で発送", "1〜2日で発送"], ["2〜3日で発送", "2〜3日で発送"], ["4〜7日で発送", "4〜7日で発送"]], include_blank: "選択して下さい"
         %hr.sell__body__form__border
         .formgroup__price
           %h3.name 
@@ -80,7 +97,7 @@
               必須
           %span.price__icon
             ¥
-          = f.text_field :price, class: "formgroup__price__box", placeholder: "300以上9999999以下で入力してください"
+          = f.number_field :price, class: "formgroup__price__box", min: 300, max: 9999999, id: "price_calc", placeholder: "300以上9999999以下で入力してください"
           %hr.sell__body__form__border
           .product_price-fee
             販売手数料(10%)
@@ -88,6 +105,8 @@
           
           .product_profit
             販売利益
+            = f.number_field :price, style: "display: none", id: "price"
+            .right_bar_2
         .submit-button
           .actions
             =f.submit "出品する",class:"btn--red"
@@ -95,3 +114,4 @@
         .prohibition
           %p.prohibition__action
             禁止されている行為および出品物を必ずご確認ください。偽ブランド品や盗品物などの販売は犯罪であり、法律により処罰される可能性があります。 また、出品をもちまして加盟店規約に同意したことになります。
+=render "footer"

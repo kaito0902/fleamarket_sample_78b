@@ -1,0 +1,7 @@
+-if model.errors.any? 
+  #error_explanation
+    %h2
+      出品に失敗しました
+    %ul
+      -model.errors.full_messages.each do |message| 
+        %li= message
