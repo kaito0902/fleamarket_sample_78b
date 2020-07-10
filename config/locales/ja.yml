@@ -1,5 +1,17 @@
+---
 ja:
   activerecord:
+    attributes:
+      product:
+        name: '商品名'
+        images: '写真'
+        category: 'カテゴリー'
+        delivery_charge: '配送料の負担'
+        condition: '商品状態'
+        description: '商品説明'
+        prefecture: '発送元の地域'
+        day: '発送までの日数'
+        price: '販売価格'
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'
