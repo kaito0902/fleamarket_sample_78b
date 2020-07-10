@@ -46,23 +46,23 @@ ActiveRecord::Schema.define(version: 2020_07_02_035600) do
   end
 
   create_table "products", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "user_id", null: false
     t.string "name", null: false
     t.text "description", null: false
     t.bigint "condition_id", null: false
     t.bigint "category_id", null: false
-    t.bigint "brand_id", null: false
+    t.bigint "brand_id"
     t.bigint "delivery_charge_id", null: false
     t.string "prefecture", null: false
     t.string "day", null: false
     t.integer "price", null: false
+    t.integer "saler_id"
+    t.integer "buyer_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["brand_id"], name: "index_products_on_brand_id"
     t.index ["category_id"], name: "index_products_on_category_id"
     t.index ["condition_id"], name: "index_products_on_condition_id"
     t.index ["delivery_charge_id"], name: "index_products_on_delivery_charge_id"
-    t.index ["user_id"], name: "index_products_on_user_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -73,7 +73,7 @@ ActiveRecord::Schema.define(version: 2020_07_02_035600) do
     t.string "last_name", null: false
     t.string "first_name_kana", null: false
     t.string "last_name_kana", null: false
-    t.date "birthday_year"
+    t.date "birthday_year", null: false
     t.date "birthday_month", null: false
     t.date "birthday_day", null: false
     t.string "tel"
@@ -86,9 +86,9 @@ ActiveRecord::Schema.define(version: 2020_07_02_035600) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "images", "products"
   add_foreign_key "products", "brands"
   add_foreign_key "products", "categories"
   add_foreign_key "products", "conditions"
   add_foreign_key "products", "delivery_charges"
-  add_foreign_key "products", "users"
 end
