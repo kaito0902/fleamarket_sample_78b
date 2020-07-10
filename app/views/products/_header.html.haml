@@ -15,9 +15,9 @@
     .header__contents__sub
       %ul.header__contents__sub__leftLists
         %li.header__contents__sub__leftLists__list
-          = link_to "カテゴリー", "#"
+          -# = link_to "カテゴリー", "#"
         %li.header__contents__sub__leftLists__list
-          = link_to "ブランド", "#"
+          -# = link_to "ブランド", "#"
       %ul.header__contents__sub__rightLists
         - if user_signed_in?
           %li.header__contents__sub__rightLists__list
@@ -29,6 +29,5 @@
             = link_to "ログイン", new_user_session_path
           %li.header__contents__sub__rightLists__list
             = link_to "新規会員登録", new_user_registration_path
-          
-
-            
+-# カテゴリー機能---------------------------------
+= render 'products/category'
