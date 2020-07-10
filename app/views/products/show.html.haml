@@ -2,15 +2,19 @@
   .product__topContent
     .product__topContent__itemBox
       .product__topContent__itemBox__name
+        -# 投稿機能が実装できたら表示させる
         -# = @product.name
       .product__topContent__itemBox__imageBox
+        -# 投稿機能が実装できたら画像を表示させる
         -# - @product.images.first(1).each do |url|
           -# = image_tag "#{url.url}", class: "product__topContent__itemBox__imageBox__mainImage"
         .product__topContent__itemBox__imageBox__subImages
+          -# 投稿機能が実装できたら画像を表示させる
           -# - @product.images.drop(1).first(9).each do |url|
           -#   = image_tag "#{url.url}", class: "product__topContent__itemBox__imageBox__subImages__subImage"
       .product__topContent__itemBox__priceBox
         .product__topContent__itemBox__priceBox__price
+          -# 投稿機能が実装できたら表示させる
           -# = @product.price
         .product__topContent__itemBox__priceBox__tax
           (税込) 送料込み
@@ -27,6 +31,7 @@
         -#   = link_to require_login_items_path do
         -#     ログインがまだな方はこちらからお願いします
       .product__topContent__itemBox__description
+        -# 投稿機能が実装できたら表示させる
         -# = @product.description
       %table.product__topContent__itemBox__table
         %tbody
@@ -34,6 +39,7 @@
             %th
               出品者
             %td
+              -# 投稿機能が実装できたら表示させる
               -# = @user.nickname
           %tr
             %th
@@ -44,6 +50,7 @@
             %th
               ブランド
             %td
+              -# 投稿機能が実装できたら表示させる
               -# = @brand.name
           %tr
             %th
@@ -54,21 +61,25 @@
             %th
               商品の状態
             %td
+              -# 投稿機能が実装できたら表示させる
               -# = @condition.status
           %tr
             %th
               配送料の負担
             %td
+              -# 投稿機能が実装できたら表示させる
               -# = @delivery_charge.charge_rule
           %tr
             %th
               発送元の地域
             %td
+              -# 投稿機能が実装できたら表示させる
               -# = @product.prefecture
           %tr
             %th
               発送日の目安
             %td
+              -# 投稿機能が実装できたら表示させる
               -# = @product.day
       .product__topContent__itemBox__buttonBox
         .product__topContent__itemBox__buttonBox__leftBotton
