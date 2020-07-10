@@ -2,9 +2,17 @@
 @import "modules/products-index";
 @import "modules/products-show";
 @import "modules/products-category";
+@import "modules/addresses";
 @import "font-awesome-sprockets";
 @import "font-awesome";
 @import "new";
+@import "modules/flash";
+@import "devise/new";
+@import "devise/new-1";
+@import "devise/new_addresses";
+@import "modules/create_address";
+@import "modules/error";
+
 * {
   box-sizing: border-box;
 }
