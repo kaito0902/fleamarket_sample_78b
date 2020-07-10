@@ -42,7 +42,6 @@
               商品名
               %span.name__caution 
                 必須
-            -# = f.collection_select :saler_id, User.all, :id, :id, include_blank: "選択して下さい"
             = f.text_field :name, class: "formgroup__content__content__box", placeholder: "40文字まで"
           .formgroup__description
             %h3.name 
