@@ -4,13 +4,13 @@ FactoryBot.define do
     email                 {Faker::Internet.email}
     password              {"password0"}
     password_confirmation {"password0"}
-    first_name            {"田原"}
-    last_name             {"刑事"}
-    first_name_kana       {"タナカ"}
-    last_name_kana        {"ケイジ"}
-    birthday_year         {"2000-01-01"}
-    birthday_month        {"2000-01-01"}
-    birthday_day          {"2000-01-01"}
+    first_name            {"刑事"}
+    last_name             {"田原"}
+    first_name_kana       {"ケイジ"}
+    last_name_kana        {"タナカ"}
+    birthday_year         {"2000"}
+    birthday_month        {"1"}
+    birthday_day          {"11"}
     tel                   {"11122223333"}
   end
 end

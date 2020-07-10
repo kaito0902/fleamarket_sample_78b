@@ -2,62 +2,85 @@
   .product__topContent
     .product__topContent__itemBox
       .product__topContent__itemBox__name
-        杉本
+        -# 投稿機能が実装できたら表示させる
+        -# = @product.name
       .product__topContent__itemBox__imageBox
-        =image_tag "tume_019.jpg", class: "product__topContent__itemBox__imageBox__mainImage"
+        -# 投稿機能が実装できたら画像を表示させる
+        -# - @product.images.first(1).each do |url|
+          -# = image_tag "#{url.url}", class: "product__topContent__itemBox__imageBox__mainImage"
         .product__topContent__itemBox__imageBox__subImages
-          =image_tag "51XSiYjXsXL._AC_.jpg", class: "product__topContent__itemBox__imageBox__subImages__subImage"
-          =image_tag "7e5638e90e12ec31f75a5672aef13138.jpg", class: "product__topContent__itemBox__imageBox__subImages__subImage"
-          =image_tag "efffef.jpg", class: "product__topContent__itemBox__imageBox__subImages__subImage"
+          -# 投稿機能が実装できたら画像を表示させる
+          -# - @product.images.drop(1).first(9).each do |url|
+          -#   = image_tag "#{url.url}", class: "product__topContent__itemBox__imageBox__subImages__subImage"
       .product__topContent__itemBox__priceBox
         .product__topContent__itemBox__priceBox__price
-          ￥10000
+          -# 投稿機能が実装できたら表示させる
+          -# = @product.price
         .product__topContent__itemBox__priceBox__tax
           (税込) 送料込み
+      .product__topContent__itemBox__buyBotton
+        = link_to "#" do
+          購入画面に進む
+        -# ログイン機能、リンクが出来たら入れ替える。
+        -# - if user_signed_in?
+        -#   - unless current_user.id == @producs.user_id
+        -# = link_to product_"購入画面のpath"(@products) do
+        -#   購入画面に進む
+        -# ----ログインしていない人用の画面作るなら-----
+        -# - else
+        -#   = link_to require_login_items_path do
+        -#     ログインがまだな方はこちらからお願いします
       .product__topContent__itemBox__description
-        いろはにほへと ちりぬるを わかよたれそ つねならむ うゐのおくやま けふこえて あさきゆめみし
+        -# 投稿機能が実装できたら表示させる
+        -# = @product.description
       %table.product__topContent__itemBox__table
         %tbody
           %tr
-            %th 
+            %th
               出品者
-            %td 
-              私
+            %td
+              -# 投稿機能が実装できたら表示させる
+              -# = @user.nickname
           %tr
-            %th 
+            %th
               カテゴリー
-            %td 
-              メンズ
+            %td
+              = @category.name
           %tr
-            %th 
+            %th
               ブランド
-            %td 
-              kabaya
+            %td
+              -# 投稿機能が実装できたら表示させる
+              -# = @brand.name
           %tr
-            %th 
+            %th
               商品のサイズ
-            %td 
+            %td
               100個
           %tr
-            %th 
+            %th
               商品の状態
-            %td 
-              未開封
+            %td
+              -# 投稿機能が実装できたら表示させる
+              -# = @condition.status
           %tr
-            %th 
+            %th
               配送料の負担
-            %td 
-              自分持ち
+            %td
+              -# 投稿機能が実装できたら表示させる
+              -# = @delivery_charge.charge_rule
           %tr
-            %th 
+            %th
               発送元の地域
-            %td 
-              山形
+            %td
+              -# 投稿機能が実装できたら表示させる
+              -# = @product.prefecture
           %tr
-            %th 
+            %th
               発送日の目安
-            %td 
-              明日発送       
+            %td
+              -# 投稿機能が実装できたら表示させる
+              -# = @product.day
       .product__topContent__itemBox__buttonBox
         .product__topContent__itemBox__buttonBox__leftBotton
           %i.fa.fa-star
@@ -65,14 +88,31 @@
         .product__topContent__itemBox__buttonBox__rightBotton
           %i.fa.fa-flag
           不適切な商品の通報
+      .product__topContent__itemBox__userButtonBox
+        .product__topContent__itemBox__userButtonBox--edit
+          = link_to "#" do
+            編集
+        .product__topContent__itemBox__userButtonBox--destroy
+          = link_to "#" do
+            削除
+        -# ログイン機能が付いたら入れ替え
+        -# - if user_signed_in?
+        -#   - if current_user.id == @products.user_id
+        -#    .product__topContent__itemBox__userButtonBox--edit
+        -#       = link_to "編集ページ" do
+        -#         編集
+        -#    .product__topContent__itemBox__userButtonBox--destroy
+        -#      = link_to "削除ページ" do
+        -#       削除
+
     .product__topContent__commentBox
       %textarea.product__topContent__commentBox__text
       .product__topContent__commentBox__caution
         相手のことを考え丁寧なコメントを心がけましょう。
-        %br     
+        %br
         不快な言葉遣いなどは利用制限や退会処分となることがあります。
       %button.product__topContent__commentBox__submit
-        %i.fa.fa-comment     
+        %i.fa.fa-comment
         コメントする
   .product__topContent__link
     .product__topContent__link__previous
@@ -81,10 +121,11 @@
       後ろの商品 >
   .product__userRelated
     .product__userRelated__userName
-      杉本さんをもっと見る
+      = @category.name
     .product__userRelated__productsBox
       = render 'userRelated'
       = render 'userRelated'
       = render 'userRelated'
       = render 'userRelated'
       = render 'userRelated'
+

@@ -117,6 +117,10 @@ ja:
       day: 日
       month: 月
       year: 年
+    sessions:
+      user:
+        signed_in: ログインしました
+        signed_out: ログアウトしました
   errors:
     format: "%{attribute}%{message}"
     messages:
@@ -136,6 +140,7 @@ ja:
       model_invalid: 'バリデーションに失敗しました: %{errors}'
       not_a_number: は数値で入力してください
       not_an_integer: は整数で入力してください
+      not_saved: 登録に失敗しました
       odd: は奇数にしてください
       other_than: は%{count}以外の値にしてください
       present: は入力しないでください

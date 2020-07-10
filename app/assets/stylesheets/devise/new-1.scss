@@ -1,0 +1,76 @@
+@mixin basebox($width:400px,$height:50px,$border-radius:3px){
+  width:400px;
+  height:50px;
+  border-radius: 3px;
+}
+.sign-in{
+  width: 100%;
+  padding-bottom: 100px;
+  background-color: #EEEEEE;
+  .icon {
+    display: block;
+    margin: 0 auto;
+    padding-top: 32px;
+    margin-bottom:40px;
+  }
+  &__wrapper{
+    text-align: center;
+    margin: auto;
+    width:700px;
+    background-color:white;
+    .message-text{
+      font-weight: bold;
+      padding-top:40px;
+    }
+    .register-button{
+      margin-top:30px;
+      .btn--red a{
+        margin: 0 auto;
+        line-height: 50px;
+        display: block;
+        text-decoration: none;
+        @include basebox(400px,50px,3px);
+        background-color: #0099e8;
+        border:1px solid #0099e8;
+        color: black;
+      }
+      .register-boder{
+        border-bottom:1px solid lightgray;
+        margin-top:50px;
+      }
+    }
+    .register-button{
+      .btn--red:hover{
+        opacity: 0.6;
+      }
+    }
+    .email-box{
+      margin-top:50px;
+      .email-btn{
+        @include basebox(400px,50px,3px);
+        border:1px solid lightgray;
+      }
+    }
+    .password-box{
+      margin-top:50px;
+      .password-btn{
+        @include basebox(400px,50px,3px);
+        border:1px solid lightgray;
+      }
+    }
+    .sign-in__button{
+      margin-top: 30px;
+      .btn--blue{
+        @include basebox(400px,50px,3px);
+        margin:20px 0 50px 0;
+        background-color: rgb(247, 40, 40);
+        border:1px solid rgb(247, 40, 40);
+      }
+    }
+    .sign-in__button{
+      .btn--blue:hover{
+        opacity: 0.6;
+      }
+    }
+  }
+}
