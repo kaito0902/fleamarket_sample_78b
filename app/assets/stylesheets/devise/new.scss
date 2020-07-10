@@ -1,0 +1,307 @@
+@mixin basebox($width:100%,$height:100%,$background-color:#eeeeee){
+  width:100%;
+  height:100%;
+  background-color: #eeeeee;
+}
+.sign-up{
+  @include basebox(100%,100%,#eeeeee);
+  &__wrapper{
+    text-align: center;
+    margin: auto;
+    width:700px;
+    height:100%;
+    background-color:white;
+    &__header{
+      height: 128px;
+      text-align: center;
+      background-color: #EEEEEE;
+      .icon {
+        display: block;
+        margin: 0 auto;
+        padding-top: 32px;
+      }
+    }
+    &__body{
+      .member-information{
+        .name{
+          font-weight: bold;
+          font-size: 22px;
+          padding:18px;
+          }
+        &__user-nickname{
+          border-top:1px solid lightgray;
+        .name{
+          justify-content: center;
+          display: flex;
+          font-weight: bold;
+          font-size: 15px;
+          &__required{
+            margin-left:10px;
+            background-color: red;
+            color: #EEEEEE;
+            font-size: 14px;
+            border-radius: 2px;
+            width:40px;
+          }
+         
+        }
+      }
+      &__user-nickname__box{
+        width:400px;
+        height:50px;
+        border-radius: 3px;
+        border:1px solid lightgray;
+      }
+      &__email-address{
+        .name{
+          justify-content: center;
+          display: flex;
+          font-weight: bold;
+          font-size: 15px;
+          &__required{
+            margin-left:10px;
+            background-color: red;
+            color: #EEEEEE;
+            font-size: 14px;
+            border-radius: 2px;
+            width:40px;
+          }
+        }
+      }
+      &__email-address__box{
+        .email-btn{
+          width:400px;
+        height:50px;
+        border-radius: 3px;
+        border:1px solid lightgray;
+        }
+        .email-btns{
+          width:400px;
+          height:50px;
+          border-radius: 3px;
+          border:1px solid lightgray;
+        }
+      }
+      &__password{
+        .name{
+          justify-content: center;
+          display: flex;
+          font-weight: bold;
+          font-size: 15px;
+          &__required{
+            margin-left:10px;
+            background-color: red;
+            color: #EEEEEE;
+            font-size: 14px;
+            border-radius: 2px;
+            width:40px;
+          }
+        }
+      }
+      &__password__box{
+        &__btn{
+          width:400px;
+        height:50px;
+        border-radius: 3px;
+        border:1px solid lightgray;
+        }
+      }
+      &__password-confirmation{
+        .name{
+          justify-content: center;
+          display: flex;
+          font-weight: bold;
+          font-size: 15px;
+          &__required{
+            margin-left:10px;
+            background-color: red;
+            color: #EEEEEE;
+            font-size: 14px;
+            border-radius: 2px;
+            width:40px;
+          }
+        }
+      }
+      &__password-confirmation__box{
+        &__btn{
+          width:400px;
+        height:50px;
+        border-radius: 3px;
+        border:1px solid lightgray;
+        }
+      }
+    }
+    .personal-information{
+      text-align: center;
+      margin: auto;
+      width:700px;
+      height:100%;
+      background-color:white;
+      &__message{
+        .top{
+          font-weight: bold;
+          margin-top:30px;
+        }
+        .next{
+          margin-top:10px;
+        }
+        
+      }
+      &__user-name{
+        .name{
+          margin-top:20px;
+          justify-content: center;
+          display: flex;
+          font-weight: bold;
+          font-size: 15px;
+          &__required{
+            margin-left:10px;
+            background-color: red;
+            color: #EEEEEE;
+            font-size: 14px;
+            border-radius: 2px;
+            width:40px;
+          }
+        }
+        .name-box{
+          display: flex;
+          justify-content: center;
+          &__last-name{
+            &_box{
+              margin:20px 10px 10px 10px;
+              width:190px;
+              height:50px;
+            }
+          }
+          &__first-name{
+            &_box{
+              margin:20px 10px 10px 10px;
+              width:190px;
+              height:50px;
+            }
+          }
+        }
+      }
+      &__user-name__kana{
+        .name{
+          margin-top:20px;
+          justify-content: center;
+          display: flex;
+          font-weight: bold;
+          font-size: 15px;
+          &__required{
+            margin-left:10px;
+            background-color: red;
+            color: #EEEEEE;
+            font-size: 14px;
+            border-radius: 2px;
+            width:40px;
+          }
+        }
+        .name-box{
+          display: flex;
+          justify-content: center;
+          &__last-name{
+            &_box{
+              margin:20px 10px 10px 10px;
+              width:190px;
+              height:50px;
+            }
+          }
+          &__first-name{
+            &_box{
+              margin:20px 10px 10px 10px;
+              width:190px;
+              height:50px;
+            }
+          }
+        }
+      }
+    &__birthday{
+      .name{
+        margin-top:20px;
+        justify-content: center;
+        display: flex;
+        font-weight: bold;
+        font-size: 15px;
+        &__required{
+          margin-left:10px;
+          background-color: red;
+          color: #EEEEEE;
+          font-size: 14px;
+          border-radius: 2px;
+          width:40px;
+        }
+      }
+    }  
+    &__birthday__box{
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+      input{    
+          width: 117px;
+          text-align: right;
+      }
+    }
+    &__phone-number{
+      .name{
+        margin-top:20px;
+        justify-content: center;
+        display: flex;
+        font-weight: bold;
+        font-size: 15px;
+        &__required{
+          margin-left:10px;
+          background-color: red;
+          color: #EEEEEE;
+          font-size: 14px;
+          border-radius: 2px;
+          width:40px;
+        }
+      }
+      &__box{
+        &__box{
+          width:400px;
+          height:50px;
+          border-radius: 3px;
+          margin-top:20px;
+        }
+      }
+    }
+  }
+  .register-box{
+    &__register-button{
+      .btn--red{
+        margin-top:50px;
+        width:400px;
+        height:50px;
+        background-color: red;
+        border:1px solid red;
+        border-radius: 3px;
+      }
+    }
+    &__register-button{
+      .btn--red:hover{
+        opacity: 0.6;
+      }
+    }
+    &__back-button{
+      .btn--blue{
+        margin:20px 0 30px 0;
+        width:400px;
+        height:50px;
+        background-color: lightgray;
+        border:1px solid lightgray;
+        border-radius: 3px;
+      }
+    }
+    &__back-button{
+      .btn--blue:hover{
+        opacity: 0.6;
+      }
+    }
+  }
+    }
+  }
+}
+
