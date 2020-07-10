@@ -5,12 +5,13 @@
 .category{
   padding-bottom: 10px;
   margin-left: 20px;
-  width: 164px;
+  width: 340px;
   a{
     text-decoration: none;
   }
   &__head{
     cursor: pointer;
+    display: flex;
     &--icon{
       color: #3CCACE;
     }
@@ -18,6 +19,7 @@
       text-decoration: none;
       font-weight: bold;
       color: black;
+      margin-right: 10px;
     }
   }
   &__list{
