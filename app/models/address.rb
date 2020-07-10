@@ -14,8 +14,8 @@ class Address < ApplicationRecord
   }
   
   validates :post_code, format: {
-    with: /\A\d{3}[-]\d{4}$|^\d{3}[-]\d{2}$|^\d{3}$|^\d{5}$|^\d{7}\z/,
-    message: "は半角数字で入力して下さい"
+    with: /\A\d{7}\z/,
+    message: "はハイフンなし7桁で入力して下さい"
   }, allow_blank: true
   validates :post_code, presence: true
 

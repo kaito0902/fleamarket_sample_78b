@@ -1,28 +1,38 @@
-.cccccc
+.new-addresses
   = form_for @address do |f|
     = render "devise/shared/error_messages", resource: @address
-    .Form
-      = f.label :post_code
-      (ハイフン無し)
-      %br/
-      = f.text_field :post_code, autofocus: true, autocomplete: "post_code", placeholder: "例) 3245566"
-    .Form
-      = f.label :prefecture
-      %br/
+    .icon
+      = image_tag 'logo.png', alt: '写真', height: '90px', width: '200px', class: 'icon'
+    .new-addresses__wrapper
+      .new-addresses__wrapper__post-code
+        .name
+          郵便番号
+          .name__required
+            必須
+      = f.text_field :post_code, autofocus: true, autocomplete: "post_code", placeholder: "例) 3245566", class: "new-addresses__wrapper__box"
+      .new-addresses__wrapper__refecture
+        .name
+          都道府県
+          .name__required
+            必須
       = f.select :prefecture, Address.prefectures.keys, autocomplete: "prefecture", placeholder: "例) 東京都"
-    .Form
-      = f.label :city
-      %br/
-      = f.text_field :city, autocomplete: "city", placeholder: "例) 足立区青井"
-    .Form
-      = f.label :house_number
-      %br/
-      = f.text_field :house_number, autocomplete: "house_number", placeholder: "例) 1-16"
-    .Form
-      = f.label :building_name
-      %br/
-      = f.text_field :building_name, autocomplete: "building_name", placeholder: "例) オフィスマンション201"
-    .action
-      = f.submit 'Sign up'
-
-= render "devise/shared/links"
+      .new-addresses__wrapper__city
+        .name
+          市区町村
+          .name__required
+            必須
+      = f.text_field :city, autocomplete: "city", placeholder: "例) 足立区青井", class: "new-addresses__wrapper__box"
+      .new-addresses__wrapper__house-number
+        .name
+          番地
+          .name__required
+            必須
+      = f.text_field :house_number, autocomplete: "house_number", placeholder: "例) 1-16", class: "new-addresses__wrapper__box"
+      .new-addresses__wrapper__building-name
+        .name
+          番地以下
+          .name__required
+            任意
+      = f.text_field :building_name, autocomplete: "building_name", placeholder: "例) オフィスマンション201", class: "new-addresses__wrapper__box"
+      .sign-in__button
+        = f.submit '登録する',class:"btn--blue"

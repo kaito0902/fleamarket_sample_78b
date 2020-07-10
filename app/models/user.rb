@@ -4,6 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   has_many :products
+  # ------クレジット機能追加時に使用-----
   # has_one :credit_card, dependent: :destroy
   has_one :address, dependent: :destroy
   
@@ -43,5 +44,5 @@ class User < ApplicationRecord
     with: /\A\d{10,11}\z/,
     message: "はハイフンなし10桁or11桁で入力して下さい"
   }, allow_blank: true
-  validates :tel, presence: true
+  validates :tel, presence: true, uniqueness: true
 end

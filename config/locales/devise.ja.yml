@@ -1,6 +1,11 @@
 ja:
   activerecord:
     attributes:
+      address:
+        post_code: 郵便番号
+        prefecture: 都道府県
+        city: 市区町村
+        house_number: 番地以下
       user:
         confirmation_sent_at: パスワード確認送信時刻
         confirmation_token: パスワード確認用トークン
@@ -16,6 +21,15 @@ ja:
         last_sign_in_ip: 最終ログインIPアドレス
         locked_at: ロック時刻
         password: パスワード
+        first_name: 名前
+        last_name: 名字
+        first_name_kana: 名前(カナ)
+        last_name_kana: 名字(カナ)
+        birthday_year: 誕生年
+        birthday_month: 誕生月
+        birthday_day: 誕生日
+        tel: 電話番号
+        nickname: ニックネーム
         password_confirmation: パスワード（確認用）
         remember_created_at: ログイン記憶時刻
         remember_me: ログインを記憶する
