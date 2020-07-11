@@ -1,0 +1,110 @@
+.mypage-main-container{
+  margin-top: 65px;
+  height:600px;
+  background-color: #f8f8f8;
+  float: left;
+  &__header{
+    padding: -10px 0px 12px 0px;
+    width: 1000px;
+    background-color: lightskyblue;
+    font-size: 23px;
+    font-weight: bold;
+    text-align: center;
+
+  }
+}
+.main-form{
+  background-color: #f8f8f8;
+  &__frame{
+    height: 600px;
+    width: 1000px;
+    background-color: #f8f8f8;
+    margin-left: 0 auto;
+    &__group{
+      display: flex;
+      width: 350px;
+      margin: 0 auto;
+      padding: 20px 0;
+      font-weight: bold;
+      bottom: 10px;
+      &__require{
+        padding: 0 2px 0 2px;
+        border-style: outset;
+        background-color: red;
+        color: #fff;
+        margin-left: 3px;
+
+      }
+      &__input{
+        height: 60px;
+        width: 350px;
+        border-radius: 5px;
+        padding: 10px 125px 8px;
+        margin: 10px auto;
+        border: border-style;
+        background-color: #fff;
+        font-size: 16px;
+        &__one{
+          background-color: #fff;
+          width: 70px;
+          height: 40px;
+          border-radius: 5px;
+          color: rgb(128, 124, 124);
+          margin-top: 10px;
+        }
+      }
+
+    }
+  
+    li{
+      display: inline;
+      justify-content: center;
+    
+    }
+    .form-group__input{
+      font-size: 16px;
+      text-align: center;
+    }
+    .form-group__add{
+      &__question{
+        display: inline;
+        border-radius: 50px;
+        line-height: 20px;
+        padding: 3px 6px;
+        background-color: #3ccace;
+        color: white;
+      }
+
+    }
+    .text--right--blue{
+      display: inline;
+      color: #3ccace;
+      font-size: 15px;
+      text-decoration: none;
+    }
+}
+.btn--red{
+  margin-top: 10px;
+  background-color: red;
+  color: white;
+  height: 50px;
+  width: 350px;
+  border: border-style;
+}
+}
+h4{
+  margin-top: 8px;
+  font-size: 13px;
+  font-weight: inherit;
+}
+h5{
+  font-size: 15px;
+  margin-top:2px;
+  text-align: center;
+  font-weight: inherit;
+}
+span{
+  text-align: center;
+  font-size: 20px;
+  text-align: justify;
+}
