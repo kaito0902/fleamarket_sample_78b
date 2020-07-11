@@ -1,0 +1,74 @@
+= render "/products/header"
+= render "/mypages/left-menubar"
+
+.mypage-main-container
+  .mypage-main-container__header
+    クレジットカード情報入力
+    .main-form
+      .main-form__frame
+        .main-form__frame__group
+          %h4 カード番号
+          .main-form__frame__group__require
+            %h5 必須
+        %p
+          = text_field_tag "number", "", class: "main-form__frame__group__input", placeholder: "半角数字のみ" ,maxlength: "16", type: "text", id: "card_number"
+          %ul.card-list
+            %li
+              = image_tag 'Visa.svg', width: '54', height: '30'
+            %li
+              = image_tag 'Master.png', width: '54', height: '30'
+            %li
+              = image_tag 'JCB.png', width: '54', height: '30'
+            %li
+              = image_tag 'amex.svg', width: '54', height: '30'
+            %li
+              = image_tag 'Diners.png', width: '54', height: '30'
+            %li
+              = image_tag 'discover.png', width: '54', height: '30'
+            .main-form__frame__group
+              %h4 有効期限
+              .main-form__frame__group__require
+                %h5 必須
+            %p
+              %select#exp_month{name: "exp_month", type: "text", class: 'main-form__frame__group__input__one'}
+                %option{value: ""} --
+                %option{value: "1"}01
+                %option{value: "2"}02
+                %option{value: "3"}03
+                %option{value: "4"}04
+                %option{value: "5"}05
+                %option{value: "6"}06
+                %option{value: "7"}07
+                %option{value: "8"}08
+                %option{value: "9"}09
+                %option{value: "10"}10
+                %option{value: "11"}11
+                %option{value: "12"}12
+              %label 月
+              %select#exp_year{name: "exp_year", type: "text", class: 'main-form__frame__group__input__one'}
+                %option{value: ""} --
+                %option{value: "2020"}20
+                %option{value: "2021"}21
+                %option{value: "2022"}22
+                %option{value: "2023"}23
+                %option{value: "2024"}24
+                %option{value: "2025"}25
+                %option{value: "2026"}26
+                %option{value: "2027"}27
+                %option{value: "2028"}28
+                %option{value: "2029"}29
+              %label 年
+            .main-form__frame__group
+              %h4 セキュリティコード
+              .main-form__frame__group__require
+                %h5 必須
+            %p
+              = text_field_tag "cvc", "", type: 'text', class: "form-group__input", id: "cvc", placeholder: "カード背面3~4桁の番号", maxlength: "4"
+              .form-group__add
+                .form-group__add__question ？
+                .text--right--blue
+                  カードの裏面の番号とは？
+              .form-group
+                #card_token
+                = submit_tag "登録する", id: "token_submit",class: "btn--red"
+    %span © 2020 furima, Inc.
