@@ -85,7 +85,7 @@ ActiveRecord::Schema.define(version: 2020_07_08_025952) do
     t.string "last_name", null: false
     t.string "first_name_kana", null: false
     t.string "last_name_kana", null: false
-    t.date "birthday_year"
+    t.date "birthday_year", null: false
     t.date "birthday_month", null: false
     t.date "birthday_day", null: false
     t.string "tel"
@@ -99,6 +99,7 @@ ActiveRecord::Schema.define(version: 2020_07_08_025952) do
   end
 
   add_foreign_key "addresses", "users"
+  add_foreign_key "images", "products"
   add_foreign_key "products", "brands"
   add_foreign_key "products", "categories"
   add_foreign_key "products", "conditions"

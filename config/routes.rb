@@ -10,8 +10,5 @@ Rails.application.routes.draw do
 
   resources :products, only: [:index, :show, :new]
   resources :buyers, only: :index do
-    collection do
-      get 'index', to: 'buyers#index'
-    end
   end
 end
