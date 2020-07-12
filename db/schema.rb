@@ -58,23 +58,23 @@ ActiveRecord::Schema.define(version: 2020_07_08_025952) do
   end
 
   create_table "products", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id", null: false
     t.string "name", null: false
     t.text "description", null: false
     t.bigint "condition_id", null: false
     t.bigint "category_id", null: false
-    t.bigint "brand_id"
+    t.bigint "brand_id", null: false
     t.bigint "delivery_charge_id", null: false
     t.string "prefecture", null: false
     t.string "day", null: false
     t.integer "price", null: false
-    t.integer "saler_id"
-    t.integer "buyer_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["brand_id"], name: "index_products_on_brand_id"
     t.index ["category_id"], name: "index_products_on_category_id"
     t.index ["condition_id"], name: "index_products_on_condition_id"
     t.index ["delivery_charge_id"], name: "index_products_on_delivery_charge_id"
+    t.index ["user_id"], name: "index_products_on_user_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -104,4 +104,5 @@ ActiveRecord::Schema.define(version: 2020_07_08_025952) do
   add_foreign_key "products", "categories"
   add_foreign_key "products", "conditions"
   add_foreign_key "products", "delivery_charges"
+  add_foreign_key "products", "users"
 end
