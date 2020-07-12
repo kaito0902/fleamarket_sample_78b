@@ -3,7 +3,6 @@ class ProductsController < ApplicationController
 
   def index
     @products = Product.all
-    # @products = Product.includes(:url).order('created_at DESC')
     @parents = Category.where(ancestry: nil)
     @images = Image.all
   end
