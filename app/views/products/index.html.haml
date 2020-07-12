@@ -96,60 +96,24 @@
       .topMain__container__productBox__head
         = link_to "新規投稿商品", "#"
       .topMain__container__productBox__lists
-        .topMain__container__productBox__lists__list
-          = link_to "#" do
-            .topMain__container__productBox__lists__list__image
-              = image_tag "icon/icon-01.png", size: '220x150'
-            .topMain__container__productBox__lists__list__body
-              %p.topMain__container__productBox__lists__list__body__name
-                Product1
-              .topMain__container__productBox__lists__list__body__box
-                %p 1000円
-                .topMain__container__productBox__lists__list__body__box--like
-                  = icon('fas', 'star')
-                  1
-              %p.topMain__container__productBox__lists__list__body__tax
-                (税込)
-        .topMain__container__productBox__lists__list
-          = link_to "#" do
-            .topMain__container__productBox__lists__list__image
-              = image_tag "icon/icon-02.png", size: '220x150'
-            .topMain__container__productBox__lists__list__body
-              %p.topMain__container__productBox__lists__list__body__name
-                Product2
-              .topMain__container__productBox__lists__list__body__box
-                %p 2000円
-                .topMain__container__productBox__lists__list__body__box--like
-                  = icon('fas', 'star')
-                  1
-              %p.topMain__container__productBox__lists__list__body__tax
-                (税込)
-        .topMain__container__productBox__lists__list
-          = link_to "#" do
-            .topMain__container__productBox__lists__list__image
-              = image_tag "icon/icon-03.png", size: '220x150'
-            .topMain__container__productBox__lists__list__body
-              %p.topMain__container__productBox__lists__list__body__name
-                Product3
-              .topMain__container__productBox__lists__list__body__box
-                %p 3000円
-                .topMain__container__productBox__lists__list__body__box--like
-                  = icon('fas', 'star')
-                  1
-              %p.topMain__container__productBox__lists__list__body__tax
-                (税込)
-        .topMain__container__productBox__lists__list
-          = link_to "#" do
-            .topMain__container__productBox__lists__list__image
-              = image_tag "icon/icon-04.png", size: '220x150'
-            .topMain__container__productBox__lists__list__body
-              %p.topMain__container__productBox__lists__list__body__name
-                Product4
-              .topMain__container__productBox__lists__list__body__box
-                %p 4000円
-                .topMain__container__productBox__lists__list__body__box--like
-                  = icon('fas', 'star')
-                  1
-              %p.topMain__container__productBox__lists__list__body__tax
-                (税込)
+        - @products.each do |product|
+          .topMain__container__productBox__lists__list
+            = link_to "#" do
+              .topMain__container__productBox__lists__list__image
+                = image_tag "#{product.images[0].url}", size: '220x150'
+                -if product.saler_id.present?
+                  .topMain__container__productBox__lists__list__image__sold
+                    .topMain__container__productBox__lists__list__image__sold__inner
+                      SOLD
+              .topMain__container__productBox__lists__list__body
+                %p.topMain__container__productBox__lists__list__body__name
+                  = product.name
+                .topMain__container__productBox__lists__list__body__box
+                  = product.price
+                  円
+                  .topMain__container__productBox__lists__list__body__box--like
+                    = icon('fas', 'star')
+                    1
+                %p.topMain__container__productBox__lists__list__body__tax
+                  (税込)
 =render "footer"

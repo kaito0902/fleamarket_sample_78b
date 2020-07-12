@@ -1,9 +1,11 @@
 class ProductsController < ApplicationController
-  before_action :set_product, except: [:index, :new, :create]
+  before_action :set_product, except: [:index, :new, :create, :show]
 
   def index
-    @products = Product.includes(:url).order('created_at DESC')
+    @products = Product.all
+    # @products = Product.includes(:url).order('created_at DESC')
     @parents = Category.where(ancestry: nil)
+    @images = Image.all
   end
 
   def show
@@ -11,6 +13,7 @@ class ProductsController < ApplicationController
     # @products = Product.where(user_id:params[:id])
     # @user = @product.user
     @category = @product.category
+    @image = @image.url
     # @brand = @product.brand
     # @condition = @product.condition
     # @delivery_charge = @product.delivery_charge
