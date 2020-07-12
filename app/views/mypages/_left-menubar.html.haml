@@ -1,0 +1,48 @@
+.wrapper
+  .mypage-side-bar
+    %nav.mypage-side-bar__nav
+      %ul.mypage-side-bar__list
+        %li
+          = link_to mypages_path, class: 'mypage-side-bar__list-item' do
+            マイページ
+            = icon 'fas', 'chevron-right'
+        %li
+          = link_to '#', class: 'mypage-side-bar__list-item' do
+            お知らせ
+            = icon 'fas', 'chevron-right'
+        %li
+          = link_to new_product_path, class: 'mypage-side-bar__list-item' do
+            出品する
+            = icon 'fas', 'chevron-right'
+        %li
+          = link_to '#', class: 'mypage-side-bar__list-item' do
+            出品した商品
+            = icon 'fas', 'chevron-right'
+        %li
+          = link_to '#', class: 'mypage-side-bar__list-item' do
+            出品した商品 - 売却済み
+            = icon 'fas', 'chevron-right'
+        %li
+          = link_to '#', class: 'mypage-side-bar__list-item' do
+            購入した商品
+            = icon 'fas', 'chevron-right'
+        %li
+          = link_to '#', class: 'mypage-side-bar__list-item' do
+            ニュース一覧
+            = icon 'fas', 'chevron-right'
+        %li
+          = link_to '#', class: 'mypage-side-bar__list-item' do
+            お問い合わせ
+            = icon 'fas', 'chevron-right'
+        %li
+          = link_to new_mycard_path	, class: 'mypage-side-bar__list-item' do
+            クレジットカード情報  編集
+            = icon 'fas', 'chevron-right'
+        %li
+          = link_to '#', class: 'mypage-side-bar__list-item' do
+            発送元・お届け先住所変更
+            = icon 'fas', 'chevron-right'
+        %li
+          = link_to  destroy_user_session_path, method: :delete, class: 'mypage-side-bar__list-item' do
+            ログアウト
+            = icon 'fas', 'chevron-right'
