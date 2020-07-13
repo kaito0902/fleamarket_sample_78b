@@ -10,8 +10,6 @@ class CreateProducts < ActiveRecord::Migration[6.0]
       t.string :prefecture,         null: false
       t.string :day,                null: false
       t.integer :price,             null: false
-      t.integer :saler_id,          foreign_key: true
-      t.integer :buyer_id,          foreign_key: true
       t.timestamps
     end
   end
