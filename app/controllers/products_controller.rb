@@ -12,9 +12,9 @@ class ProductsController < ApplicationController
     # @products = Product.where(user_id:params[:id])
     # @user = @product.user
     @category = @product.category
-    @image = @image.url
+    # @image = @image.url
     # @brand = @product.brand
-    # @condition = @product.condition
+    @condition = @product.condition
     # @delivery_charge = @product.delivery_charge
   end
 

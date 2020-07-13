@@ -343,3 +343,30 @@ others_9.children.create([{name: "すべて"}])
 # カテゴリー一覧
 
 categories = Category.create(name: "カテゴリー一覧")
+
+
+Condition.create!(
+  status: '新品、未使用'
+)
+Condition.create!(
+  status: '未使用に近い'
+)
+Condition.create!(
+  status: '目立った傷や汚れなし'
+)
+Condition.create!(
+  status: 'やや傷や汚れあり'
+)
+Condition.create!(
+  status: '傷や汚れあり'
+)
+Condition.create!(
+  status: '全体的に状態が悪い'
+)
+
+DeliveryCharge.create!(
+  charge_rule: '送料込み(出品者負担)'
+)
+DeliveryCharge.create!(
+  charge_rule: '着払い(購入者負担)'
+)
