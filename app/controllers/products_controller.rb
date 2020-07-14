@@ -9,8 +9,8 @@ class ProductsController < ApplicationController
 
   def show
     @product = Product.find(params[:id])
-    # @products = Product.where(user_id:params[:id])
-    # @user = @product.user
+    @products = Product.where(user_id:params[:id])
+    @saler = @product.saler
     @category = @product.category
     # @image = @image.url
     @brand = @product.brand
@@ -28,7 +28,7 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(product_params)
     if @product.save
-      redirect_to root_path
+      redirect_to root_path, notice:"商品を出品しました"
     else
       render :new
     end
@@ -36,7 +36,7 @@ class ProductsController < ApplicationController
 
   def update
     if @product.update(product_params)
-      redirect_to root_path
+      redirect_to root_path, notice:"商品を編集しました"
     else
       render :edit
     end
@@ -44,7 +44,7 @@ class ProductsController < ApplicationController
 
   def destroy
     @product.destroy
-    redirect_to root_path
+    redirect_to root_path, notice:"商品を削除しました"
   end
 
   private
