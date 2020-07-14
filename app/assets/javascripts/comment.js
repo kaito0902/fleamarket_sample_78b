@@ -39,7 +39,7 @@ $(document).on('turbolinks:load', ()=> {
       $('.product__topContent__commentBox__submit').prop('disabled', false);
     })
     .fail(function(){
-      alert('error');
+      alert('コメントを入力してください');
     })
   })
 
