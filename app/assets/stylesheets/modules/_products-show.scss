@@ -142,6 +142,37 @@
         font-size: 18px;
         border: none;
       }
+      &__index{
+        &__head{
+          font-size: 24px;
+          margin-top: 20px;
+        }
+        &__box{
+          // background-color: lightcoral;
+          text-align: left;
+          padding: 5px 40px;
+          &--name{
+            font-weight: bold;
+            margin-left: 4px;
+          }
+          &--saler{
+            font-size: 14px;
+            background-color: #3CCACE;
+            color: white;
+            text-shadow: 0 0 3px rgba(33,33,33,0.4);
+            padding: 2px;
+          }
+          &--date{
+            font-size: 12px;
+            float: right;
+            color: #555;
+          }
+          &--text{
+            background-color: whitesmoke;
+            padding: 8px;
+          }
+        }
+      }
     }
     &__link{
       width: 700px;

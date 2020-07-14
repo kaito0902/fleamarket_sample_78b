@@ -16,6 +16,8 @@ class ProductsController < ApplicationController
     # @brand = @product.brand
     @condition = @product.condition
     # @delivery_charge = @product.delivery_charge
+    @comment = Comment.new
+    @comments = @product.comments.includes(:user)
   end
 
   def new
