@@ -12,9 +12,12 @@ class ProductsController < ApplicationController
     @products = Product.where(user_id:params[:id])
     @saler = @product.saler
     @category = @product.category
+    # @image = @image.url
     @brand = @product.brand
     @condition = @product.condition
     @delivery_charge = @product.delivery_charge
+    @comment = Comment.new
+    @comments = @product.comments.includes(:user)
   end
 
   def new
