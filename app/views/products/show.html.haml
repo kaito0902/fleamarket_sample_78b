@@ -3,7 +3,7 @@
     .product__topContent__itemBox
       .product__topContent__itemBox__name
         -# 投稿機能が実装できたら表示させる
-        -# = @product.name
+        = @product.name
       .product__topContent__itemBox__imageBox
         -# 投稿機能が実装できたら画像を表示させる
         -# - @product.images.first(1).each do |url|
@@ -15,7 +15,7 @@
       .product__topContent__itemBox__priceBox
         .product__topContent__itemBox__priceBox__price
           -# 投稿機能が実装できたら表示させる
-          -# = @product.price
+          = @product.price
         .product__topContent__itemBox__priceBox__tax
           (税込) 送料込み
       .product__topContent__itemBox__buyBotton
@@ -32,7 +32,7 @@
         -#     ログインがまだな方はこちらからお願いします
       .product__topContent__itemBox__description
         -# 投稿機能が実装できたら表示させる
-        -# = @product.description
+        = @product.description
       %table.product__topContent__itemBox__table
         %tbody
           %tr
@@ -51,7 +51,7 @@
               ブランド
             %td
               -# 投稿機能が実装できたら表示させる
-              -# = @brand.name
+              = @brand.name
           %tr
             %th
               商品のサイズ
@@ -68,19 +68,19 @@
               配送料の負担
             %td
               -# 投稿機能が実装できたら表示させる
-              -# = @delivery_charge.charge_rule
+              = @delivery_charge.charge_rule
           %tr
             %th
               発送元の地域
             %td
               -# 投稿機能が実装できたら表示させる
-              -# = @product.prefecture
+              = @product.prefecture
           %tr
             %th
               発送日の目安
             %td
               -# 投稿機能が実装できたら表示させる
-              -# = @product.day
+              = @product.day
       .product__topContent__itemBox__buttonBox
         .product__topContent__itemBox__buttonBox__leftBotton
           %i.fa.fa-star
@@ -117,13 +117,14 @@
             %i.fa.fa-comment
             コメントする
       - else
-      %p コメントの投稿には、
-      = link_to "ログイン", new_user_session_path
-      または
-      = link_to "新規会員登録", new_user_registration_path
-      が必要です
+        .product__topContent__commentBox__signin
+          %p コメントの投稿には、
+          = link_to "ログイン", new_user_session_path
+          または
+          = link_to "新規会員登録", new_user_registration_path
+          が必要です
+      %p.product__topContent__commentBox__head ＜コメント一覧＞
       .product__topContent__commentBox__index
-        %p.product__topContent__commentBox__index__head ＜コメント一覧＞
         - if @comments
           - @comments.each do |comment|
             .product__topContent__commentBox__index__box
@@ -132,7 +133,7 @@
               - if comment.user.id == @product.saler_id
                 %span.product__topContent__commentBox__index__box--saler 出品者
               %span.product__topContent__commentBox__index__box--date= comment.created_at.strftime("%Y-%m-%d %H:%M")
-              .product__topContent__commentBox__index__box--text= comment.text
+              %p.product__topContent__commentBox__index__box--text= comment.text
 
   .product__topContent__link
     .product__topContent__link__previous

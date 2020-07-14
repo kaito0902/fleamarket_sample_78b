@@ -13,9 +13,9 @@ class ProductsController < ApplicationController
     # @user = @product.user
     @category = @product.category
     # @image = @image.url
-    # @brand = @product.brand
+    @brand = @product.brand
     @condition = @product.condition
-    # @delivery_charge = @product.delivery_charge
+    @delivery_charge = @product.delivery_charge
     @comment = Comment.new
     @comments = @product.comments.includes(:user)
   end
