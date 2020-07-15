@@ -9,9 +9,9 @@ class ProductsController < ApplicationController
 
   def show
     @product = Product.find(params[:id])
-    @products = Product.where(user_id:params[:id])
     @saler = @product.saler
     @category = @product.category
+    @category2 = @category.products
     @brand = @product.brand
     @condition = @product.condition
     @delivery_charge = @product.delivery_charge
@@ -31,7 +31,12 @@ class ProductsController < ApplicationController
     end
   end
 
+  def edit
+    @product = Product.find(params[:id])
+  end
+
   def update
+
     if @product.update(product_params)
       redirect_to root_path, notice:"商品を編集しました"
     else

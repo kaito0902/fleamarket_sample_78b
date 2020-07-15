@@ -79,7 +79,7 @@
         - if user_signed_in?
           - if current_user.id == @saler.id
             .product__topContent__itemBox__userButtonBox--edit
-              = link_to "編集", "#"          
+              = link_to "編集", edit_product_path(@product.id), method: :get        
             .product__topContent__itemBox__userButtonBox--destroy
               = link_to "削除", product_path(@product.id) , method: :delete
     .product__topContent__commentBox

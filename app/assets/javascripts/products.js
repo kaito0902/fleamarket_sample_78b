@@ -1,8 +1,7 @@
 $(document).on('turbolinks:load', ()=> {
   // 画像用のinputを生成する関数
   const buildFileField = (num)=> {
-      
-    const html = `<div data-index="${num}" class="js-file_group" id="js-file_group_${num}">
+    const html = `<div data-index="${num}" class="js-file_group">
                     <input class="js-file" type="file"
                     name="product[images_attributes][${num}][url]"
                     id="product_images_attributes_${num}_url"><br>
@@ -29,10 +28,10 @@ $(document).on('turbolinks:load', ()=> {
     // ファイルのブラウザ上でのURLを取得する
     const file = e.target.files[0];
     const blobUrl = window.URL.createObjectURL(file);
-    lastIndex = $('.js-file_group:last').data('index');
+
     // 該当indexを持つimgがあれば取得して変数imgに入れる(画像変更の処理)
     if (img = $(`img[data-index="${targetIndex}"]`)[0]) {
-      img.setAttribute('url', blobUrl);
+      img.setAttribute('src', blobUrl);
     } else {  // 新規画像追加の処理
       $('#previews').append(buildImg(targetIndex, blobUrl));
       // fileIndexの先頭の数字を使ってinputを作る
@@ -40,9 +39,6 @@ $(document).on('turbolinks:load', ()=> {
       fileIndex.shift();
       // 末尾の数に1足した数を追加する
       fileIndex.push(fileIndex[fileIndex.length - 1] + 1);
-      if (lastIndex == 3){
-        $('#js-file_group_4').css('display', 'none')
-      }      
     }
   });
 
@@ -57,9 +53,8 @@ $(document).on('turbolinks:load', ()=> {
     $(`img[data-index="${targetIndex}"]`).remove();
 
     // 画像入力欄が0個にならないようにしておく
-    if ($('.js-file_group').length == 0) $('#image-box').append(buildFileField(fileIndex[0]));
+    if ($('.js-file').length == 0) $('#image-box').append(buildFileField(fileIndex[0]));
   });
-
   $(function(){
     $('#price_calc').on('input', function(){   //リアルタイムで表示したいのでinputを使う｡入力の度にイベントが発火するようになる｡
       var data = $('#price_calc').val(); // val()でフォームのvalueを取得(数値)
@@ -77,6 +72,3 @@ $(document).on('turbolinks:load', ()=> {
     })
   })
 });
-
-
-
