@@ -23,7 +23,7 @@
         &__subImages{
           margin-top: 10px;
           display: flex;
-          justify-content: center;
+          flex-wrap : wrap;
           &__subImage{
             object-fit: cover;
             height: 85px;
