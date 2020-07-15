@@ -1,5 +1,6 @@
 class Product < ApplicationRecord
   has_many :images, dependent: :destroy
+  has_many :bookmarks, dependent: :destroy
   validates :images, presence: true
   belongs_to :category
   belongs_to :brand, optional: true
@@ -17,6 +18,11 @@ class Product < ApplicationRecord
   validates :prefecture, presence: true
   validates :day, presence: true
   validates :price, presence: true, numericality: {greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999}
+
+  # productのお気に入り判定 → vies側で呼び出し
+  def bookmark_by?(user)
+    bookmarks.where(user_id: user.id).exists?
+  end
 
   enum prefecture:{
     "   ":"   ",

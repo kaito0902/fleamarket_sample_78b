@@ -10,6 +10,7 @@ class ProductsController < ApplicationController
   def show
     @product = Product.find(params[:id])
     @products = Product.where(user_id:params[:id])
+    @products2 = Product.all.includes(:saler)
     @saler = @product.saler
     @category = @product.category
     # @image = @image.url
@@ -45,6 +46,10 @@ class ProductsController < ApplicationController
   def destroy
     @product.destroy
     redirect_to root_path, notice:"商品を削除しました"
+  end
+
+  def bookmarks
+    @products = current_user.bookmark_products.includes(:saler)
   end
 
   private

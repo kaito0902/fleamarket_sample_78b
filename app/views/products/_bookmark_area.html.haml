@@ -1,0 +1,4 @@
+- if product.bookmark_by?(current_user)
+  = render 'products/bookmark', product: product
+- else
+  = render 'products/unbookmark', product: product

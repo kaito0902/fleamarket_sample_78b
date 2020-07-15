@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'bookmarks/create'
+  get 'bookmarks/destroy'
   devise_for :users, controllers: {
     registrations: 'users/registrations'
   }
@@ -15,4 +17,9 @@ Rails.application.routes.draw do
   resources :buyers, only: :index
   resources :mypages, only: [:index, :show]
   resources :mycards, only: [:new, :show]
+
+  resources :products, shallow: true do
+    resource :bookmarks, only: %i[create destroy]
+    get :bookmarks, on: :collection
+  end
 end
