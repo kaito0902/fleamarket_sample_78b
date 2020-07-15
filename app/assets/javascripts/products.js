@@ -1,7 +1,7 @@
 $(document).on('turbolinks:load', ()=> {
   // 画像用のinputを生成する関数
   const buildFileField = (num)=> {
-    const html = `<div data-index="${num}" class="js-file_group">
+    const html = `<div data-index="${num}" class="js-file_group" id="js-file_group_${num}">
                     <input class="js-file" type="file"
                     name="product[images_attributes][${num}][url]"
                     id="product_images_attributes_${num}_url"><br>
@@ -28,7 +28,7 @@ $(document).on('turbolinks:load', ()=> {
     // ファイルのブラウザ上でのURLを取得する
     const file = e.target.files[0];
     const blobUrl = window.URL.createObjectURL(file);
-
+    lastIndex = $('.js-file_group:last').data('index');
     // 該当indexを持つimgがあれば取得して変数imgに入れる(画像変更の処理)
     if (img = $(`img[data-index="${targetIndex}"]`)[0]) {
       img.setAttribute('src', blobUrl);
@@ -39,6 +39,9 @@ $(document).on('turbolinks:load', ()=> {
       fileIndex.shift();
       // 末尾の数に1足した数を追加する
       fileIndex.push(fileIndex[fileIndex.length - 1] + 1);
+      if (lastIndex == 9){
+        $('#js-file_group_10').css('display', 'none')
+      }
     }
   });
 
