@@ -23,7 +23,7 @@
         &__subImages{
           margin-top: 10px;
           display: flex;
-          justify-content: center;
+          flex-wrap : wrap;
           &__subImage{
             object-fit: cover;
             height: 85px;
@@ -102,8 +102,9 @@
       }
       &__userButtonBox{
         display: flex;
+        justify-content: space-between;
         margin: 30px 0;
-        a{
+        &--edit a{
           display: block;
           margin-right: 10px;
           color: #fff;
@@ -111,6 +112,16 @@
           border-radius: 5px;
           font-size: 14px;
           background-color: #3CCACE;
+          text-decoration: none;
+        }
+        &--destroy a{
+          display: block;
+          margin-right: 10px;
+          color: #fff;
+          padding: 10px 40px;
+          border-radius: 5px;
+          font-size: 14px;
+          background-color:red;
           text-decoration: none;
         }
       }
