@@ -1,2 +1,97 @@
-=render "form"
-=render "footer"
+.sign-up 
+  = form_for(@user, url: user_registration_path) do |f|
+    = render "devise/shared/error_messages", resource: @user
+    .sign-up__wrapper
+      .sign-up__wrapper__header
+        = image_tag 'logo.png', alt: '写真', height: '90px', width: '200px', class: 'icon'
+      .sign-up__wrapper__body
+        .member-information
+          .name
+            会員情報入力
+          .member-information__user-nickname
+            .name
+              ニックネーム
+              .name__required
+                必須
+            = f.text_field :nickname, autofocus: true, autocomplete: "nickname", placeholder: "例) 聖徳たいし", class: "member-information__user-nickname__box"
+          .member-information__email-address
+            .name
+              メールアドレス
+              .name__required
+                必須
+            .member-information__email-address__box
+              = f.text_field :email, autocomplete: "email", placeholder: "例) sample@sample.com", class:"email-btns"
+          .member-information__password
+            .name
+              パスワード
+              .name__required
+                必須
+            .member-information__password__box      
+              = f.password_field :password, autocomplete: "new-password", placeholder: "7文字以上の半角英数字", class:"member-information__password__box__btn"
+          .member-information__password-confirmation
+            .name
+              パスワード(確認)      
+              .name__required
+                必須
+            .member-information__password-confirmation__box
+              = f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "7文字以上の半角英数字", class:"member-information__password-confirmation__box__btn"
+          .personal-information
+            .personal-information__message
+              .top
+                本人確認
+              .next
+                安心・安全にご利用いただくために、
+                %br
+                お客さまの本人情報の登録にご協力ください。
+                %br
+                他のお客さまに公開されることはありません。
+            .personal-information__user-name
+              .name
+                お名前（全角）
+                .name__required
+                  必須
+              .name-box
+                .name-box__last-name
+                  = f.text_field :last_name, autocomplete: "last_name", placeholder: "例) 田中", class: "name-box__last-name_box"
+                .name-box__first-name
+                  = f.text_field :first_name, autocomplete: "first_name", placeholder: "例) 太郎", class: "name-box__first-name_box"
+            .personal-information__user-name__kana
+              .name
+                お名前（カナ）
+                .name__required
+                  必須
+              .name-box
+                .name-box__last-name
+                  = f.text_field :last_name_kana, autocomplete: "last_name_kana", placeholder: "例) タナカ", class: "name-box__last-name_box"
+                .name-box__first-name
+                  = f.text_field :first_name_kana, autocomplete: "first_name_kana", placeholder: "例) タロウ", class: "name-box__first-name_box"
+            .personal-information__birthday
+              .name
+                生年月日
+                .name__required
+                  必須
+              .personal-information__birthday__box
+                .personal-information__birthday__box__year
+                = f.number_field :birthday_year, min: 1, max: 9999, autocomplete: "birthday_year", placeholder: "2020"
+                .year
+                  年
+                .personal-information__birthday__box__month
+                = f.number_field :birthday_month, min: 1, max: 12, autocomplete: "birthday_month", placeholder: "5"
+                .month
+                  月
+                .personal-information__birthday__box__day
+                = f.number_field :birthday_day, min: 1, max: 31, autocomplete: "birthday_day", placeholder: "21"
+                .day
+                  日
+            .personal-information__phone-number
+              .name
+                電話番号
+                .name__required
+                  必須
+              .personal-information__phone-number__box
+                = f.text_field :tel,autocomplete: "tel", placeholder: "ハイフン不要", class: "personal-information__phone-number__box__box"
+            .register-box
+              .register-box__register-button
+                = f.submit "住所情報登録へ",class:"btn--red"
+              .register-box__back-button   
+                = f.submit "戻る",class:"btn--blue"

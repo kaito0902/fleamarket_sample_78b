@@ -1,7 +1,8 @@
 .sell
   = render 'layouts/error', model: @product
   .sell__header
-    = image_tag 'logo.png', alt: '写真', height: '60px', width: '200px', class: 'icon'
+    = link_to root_path do
+      = image_tag 'logo.png', alt: '写真', height: '60px', width: '200px', class: 'icon'
   .sell__body
     = form_with(model: @product, local: true) do |f|
       .sell__body__form
