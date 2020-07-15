@@ -108,7 +108,10 @@
             .right_bar_2
         .submit-button
           .actions
-            =f.submit "更新する",class:"btn--red"
+            - if action_name == "new"
+              =f.submit "出品する",class:"btn--red"
+            - else
+              =f.submit "更新する",class:"btn--red"
           =link_to "もどる",products_path,class:"btn--gray"
         .prohibition
           %p.prohibition__action
