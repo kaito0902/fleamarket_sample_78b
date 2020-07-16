@@ -2,45 +2,34 @@
   .product__topContent
     .product__topContent__itemBox
       .product__topContent__itemBox__name
-        -# 投稿機能が実装できたら表示させる
-        -# = @product.name
+        = @product.name
       .product__topContent__itemBox__imageBox
-        -# 投稿機能が実装できたら画像を表示させる
-        -# - @product.images.first(1).each do |url|
-          -# = image_tag "#{url.url}", class: "product__topContent__itemBox__imageBox__mainImage"
+        - @product.images.first(1).each do |url|
+          = image_tag "#{url.url}", class: "product__topContent__itemBox__imageBox__mainImage"
         .product__topContent__itemBox__imageBox__subImages
-          -# 投稿機能が実装できたら画像を表示させる
-          -# - @product.images.drop(1).first(9).each do |url|
-          -#   = image_tag "#{url.url}", class: "product__topContent__itemBox__imageBox__subImages__subImage"
+          - @product.images.drop(1).first(9).each do |url|
+            = image_tag "#{url.url}", class: "product__topContent__itemBox__imageBox__subImages__subImage"
       .product__topContent__itemBox__priceBox
         .product__topContent__itemBox__priceBox__price
-          -# 投稿機能が実装できたら表示させる
-          -# = @product.price
+          ¥
+          = @product.price
         .product__topContent__itemBox__priceBox__tax
           (税込) 送料込み
       .product__topContent__itemBox__buyBotton
-        = link_to "#" do
-          購入画面に進む
-        -# ログイン機能、リンクが出来たら入れ替える。
-        -# - if user_signed_in?
-        -#   - unless current_user.id == @producs.user_id
-        -# = link_to product_"購入画面のpath"(@products) do
-        -#   購入画面に進む
-        -# ----ログインしていない人用の画面作るなら-----
-        -# - else
-        -#   = link_to require_login_items_path do
-        -#     ログインがまだな方はこちらからお願いします
+        - if user_signed_in?
+          - unless current_user.id == @saler.id
+            = link_to "購入画面に進む","#"
+        - else
+          = link_to "ログインがまだな方はこちらからお願いします", new_user_session_path 
       .product__topContent__itemBox__description
-        -# 投稿機能が実装できたら表示させる
-        -# = @product.description
+        = @product.description
       %table.product__topContent__itemBox__table
         %tbody
           %tr
             %th
               出品者
             %td
-              -# 投稿機能が実装できたら表示させる
-              -# = @user.nickname
+              = @saler.nickname
           %tr
             %th
               カテゴリー
@@ -50,8 +39,10 @@
             %th
               ブランド
             %td
-              -# 投稿機能が実装できたら表示させる
-              -# = @brand.name
+              - if @brand.present?
+                = @brand.name
+              - else
+                指定なし 
           %tr
             %th
               商品のサイズ
@@ -61,26 +52,22 @@
             %th
               商品の状態
             %td
-              -# 投稿機能が実装できたら表示させる
               = @condition.status
           %tr
             %th
               配送料の負担
             %td
-              -# 投稿機能が実装できたら表示させる
-              -# = @delivery_charge.charge_rule
+              = @delivery_charge.charge_rule
           %tr
             %th
               発送元の地域
             %td
-              -# 投稿機能が実装できたら表示させる
-              -# = @product.prefecture
+              = @product.prefecture
           %tr
             %th
               発送日の目安
             %td
-              -# 投稿機能が実装できたら表示させる
-              -# = @product.day
+              = @product.day
       .product__topContent__itemBox__buttonBox
         .product__topContent__itemBox__buttonBox__leftBotton
           %i.fa.fa-star
@@ -90,20 +77,12 @@
           不適切な商品の通報
       .product__topContent__itemBox__userButtonBox
         .product__topContent__itemBox__userButtonBox--edit
-          = link_to "#" do
-            編集
-        .product__topContent__itemBox__userButtonBox--destroy
-          = link_to "#" do
-            削除
-        -# ログイン機能が付いたら入れ替え
-        -# - if user_signed_in?
-        -#   - if current_user.id == @products.user_id
-        -#    .product__topContent__itemBox__userButtonBox--edit
-        -#       = link_to "編集ページ" do
-        -#         編集
-        -#    .product__topContent__itemBox__userButtonBox--destroy
-        -#      = link_to "削除ページ" do
-        -#       削除
+        - if user_signed_in?
+          - if current_user.id == @saler.id
+            .product__topContent__itemBox__userButtonBox--edit
+              = link_to "編集ページ" 
+            .product__topContent__itemBox__userButtonBox--destroy
+              = link_to "削除ページ" 
 
     .product__topContent__commentBox
       %textarea.product__topContent__commentBox__text
@@ -124,8 +103,8 @@
       = @category.name
     .product__userRelated__productsBox
       = render 'userRelated'
-      = render 'userRelated'
-      = render 'userRelated'
-      = render 'userRelated'
-      = render 'userRelated'
+      -# = render 'userRelated'
+      -# = render 'userRelated'
+      -# = render 'userRelated'
+      -# = render 'userRelated'
 

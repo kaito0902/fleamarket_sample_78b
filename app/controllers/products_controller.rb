@@ -9,13 +9,13 @@ class ProductsController < ApplicationController
 
   def show
     @product = Product.find(params[:id])
-    # @products = Product.where(user_id:params[:id])
-    # @user = @product.user
+    @products = Product.where(user_id:params[:id])
+    @saler = @product.saler
     @category = @product.category
-    # @image = @image.url
-    # @brand = @product.brand
+    @category2 = @category.products
+    @brand = @product.brand
     @condition = @product.condition
-    # @delivery_charge = @product.delivery_charge
+    @delivery_charge = @product.delivery_charge
   end
 
   def new
@@ -47,8 +47,7 @@ class ProductsController < ApplicationController
 
   private
   def product_params
-    params.require(:product).permit(:name, :price, :description, :category_id, :brand_id, :condition_id, :delivery_charge_id, :prefecture, :day, :saler_id, :buyer_id, images_attributes: [:url, :_destroy, :id])
-    # .marge(saler_id: current_user.id)
+    params.require(:product).permit(:name, :price, :description, :category_id, :brand_id, :condition_id, :delivery_charge_id, :prefecture, :day, :saler_id, :buyer_id, images_attributes: [:url, :_destroy, :id]).merge(saler_id: current_user.id)
   end
 
   def set_product
