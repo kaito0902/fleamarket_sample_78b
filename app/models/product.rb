@@ -16,7 +16,9 @@ class Product < ApplicationRecord
   validates :prefecture, presence: true
   validates :day, presence: true
   validates :price, presence: true, numericality: {greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999}
+  # has_many credit_cards
 
+  validates :price, presence: true
   enum prefecture:{
     "   ":0,
     北海道:1,青森県:2,岩手県:3,宮城県:4,秋田県:5,山形県:6,福島県:7,

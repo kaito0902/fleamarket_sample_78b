@@ -1,0 +1,8 @@
+class CreditCard < ApplicationRecord
+  # belongs_to :product
+  belongs_to :user
+
+  validates :name, presence: true
+  validates :email, presence: true
+
+  end

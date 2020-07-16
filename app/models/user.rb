@@ -8,7 +8,8 @@ class User < ApplicationRecord
   has_many :sold_products, -> { where("buyer_id is not NULL") }, foreign_key: "saler_id", class_name: "Product"
 
   # ------クレジット機能追加時に使用-----
-  # has_one :credit_card, dependent: :destroy
+  has_one :credit_cards,dependent: :destroy
+
   has_one :address, dependent: :destroy
   
   validates :nickname, presence: true, uniqueness: true
