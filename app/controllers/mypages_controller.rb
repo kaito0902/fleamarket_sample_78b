@@ -5,4 +5,7 @@ class MypagesController < ApplicationController
   
   def show
   end
+
+  def bookmarks
+  end
 end

@@ -15,7 +15,11 @@ Rails.application.routes.draw do
     resources :comments, only: :create
   end
   resources :buyers, only: :index
-  resources :mypages, only: [:index, :show]
+  resources :mypages, only: [:index, :show] do
+    collection do
+      get :bookmarks
+    end
+  end
   resources :mycards, only: [:new, :show]
 
   resources :products, shallow: true do
