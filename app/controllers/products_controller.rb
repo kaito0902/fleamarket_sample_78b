@@ -52,6 +52,10 @@ class ProductsController < ApplicationController
     redirect_to root_path, notice:"商品を削除しました"
   end
 
+  def bookmarks
+    @products = current_user.bookmark_products.includes(:saler)
+  end
+
   def search
     @products = Product.search(params[:keyword])
   end
