@@ -370,3 +370,22 @@ DeliveryCharge.create!(
 DeliveryCharge.create!(
   charge_rule: '着払い(購入者負担)'
 )
+
+Brand.create!(
+  name: 'シャネル'
+)
+Brand.create!(
+  name: 'ナイキ'
+)
+Brand.create!(
+  name: 'ルイ ヴィトン'
+)
+Brand.create!(
+  name: 'シュプリーム'
+)
+Brand.create!(
+  name: 'アディダス'
+)
+Brand.create!(
+  name: 'その他'
+)
