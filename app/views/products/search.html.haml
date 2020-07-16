@@ -1,0 +1,24 @@
+= render "header"
+.form
+  .form__for
+    - @products.each do |product|
+      .product__userRelated__productsBox__products
+        .product__userRelated__productsBox__products__products
+          - product.images.first(1).each do |a|
+            .product__userRelated__productsBox__products__products__image
+              = link_to product_path(a.product) do
+                = image_tag "#{a.url}",class: "product__userRelated__productsBox__products__products__image"
+            .product__userRelated__productsBox__products__products__body
+              .product__userRelated__productsBox__products__products__body__name
+                = product.name
+              .product__userRelated__productsBox__products__products__body__info
+                .product__userRelated__productsBox__products__products__body__info__price
+                  ¥
+                  = product.price
+                .product__userRelated__productsBox__products__products__body__info__like
+                  %i.fa.fa-star
+                  1
+              .product__userRelated__productsBox__products__products__body__tax
+                (税込)
+=render "footer"
+=render "displayicon"

@@ -24,6 +24,12 @@ class Product < ApplicationRecord
     bookmarks.where(user_id: user.id).exists?
   end
 
+  def self.search(search)
+    return Product.all unless search
+    Product.where('name LIKE(?)', "%#{search}%")
+  end
+
+
   enum prefecture:{
     "   ":"   ",
     北海道:"北海道",青森県:"青森県",岩手県:"岩手県",宮城県:"宮城県",秋田県:"秋田県",山形県:"山形県",福島県:"福島県",

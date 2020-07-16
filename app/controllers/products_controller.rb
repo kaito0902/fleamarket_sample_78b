@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :set_product, except: [:index, :new, :create, :show]
+  before_action :set_product, except: [:index, :new, :create, :show,:search]
 
   def index
     @products = Product.all
@@ -56,6 +56,11 @@ class ProductsController < ApplicationController
   def bookmarks
     @products = current_user.bookmark_products.includes(:saler)
   end
+
+  def search
+    @products = Product.search(params[:keyword])
+  end
+
 
   private
   def product_params
