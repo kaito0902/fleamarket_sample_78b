@@ -1,4 +1,4 @@
-- @category2 .each do |i|
+- @category2.shuffle.first(9).each do |i|
   - unless @product.id == i.id
     .product__userRelated__productsBox__products
       - i.images.first(1).each do |a|
