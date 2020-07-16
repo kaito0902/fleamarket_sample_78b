@@ -1,4 +1,5 @@
-- if product.bookmark_by?(current_user)
-  = render 'products/bookmark', product: product
-- else
-  = render 'products/unbookmark', product: product
+- if user_signed_in?
+  - if @product.bookmark_by?(current_user)
+    = link_to icon('fas', 'star', class: 'no'), product_bookmarks_path(@product.id), method: :delete, remote: true
+  - else
+    = link_to icon('fas', 'star', class: 'yes'), product_bookmarks_path(@product.id), method: :post, remote: true
