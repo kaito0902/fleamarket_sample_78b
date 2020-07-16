@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :set_product, except: [:index, :new, :create, :show]
+  before_action :set_product, except: [:index, :new, :create, :show,:search]
 
   def index
     @products = Product.all
@@ -51,6 +51,11 @@ class ProductsController < ApplicationController
     @product.destroy
     redirect_to root_path, notice:"商品を削除しました"
   end
+
+  def search
+    @products = Product.search(params[:keyword])
+  end
+
 
   private
   def product_params
