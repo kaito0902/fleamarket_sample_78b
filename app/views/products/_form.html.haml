@@ -61,7 +61,7 @@
               ブランド
               %span.name__caution 
                 任意
-            = f.text_field :brand_id, class: "formgroup__brand__box", placeholder: "例)シャネル"
+            = f.collection_select :brand_id, Brand.all, :id, :name, include_blank: "選択して下さい"
           .formgroup__status
             %h3.name 
               商品の状態

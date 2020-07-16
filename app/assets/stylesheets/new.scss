@@ -161,6 +161,18 @@
             font-family: Arial,æ¸¸ã‚´ã‚·ãƒƒã‚¯ä½“,YuGothic,ãƒ¡ã‚¤ãƒªã‚ª,Meiryo,sans-serif;
           }
         }
+        select {
+          border: 1px solid #ccc;
+          border-radius: 4px;
+          box-sizing: border-box;
+          font-family: inherit;
+          font-size: inherit;
+          height: 48px;
+          margin: 0;
+          outline: none;
+          padding: 0 16px;
+          width: 640px;
+        }
         &__box {
           border: 1px solid #ccc;
           border-radius: 4px;
