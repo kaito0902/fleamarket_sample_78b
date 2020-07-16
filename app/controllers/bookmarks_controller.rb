@@ -1,12 +1,16 @@
 class BookmarksController < ApplicationController
+  before_action :set_product, only: [:create, :destroy]
   def create
-    @product = Product.find(params[:product_id])
     bookmark = current_user.bookmarks.build(product_id: params[:product_id])
     bookmark.save
   end
 
   def destroy
-    @product = Product.find(params[:product_id])
     current_user.bookmarks.find_by(product_id: params[:product_id]).destroy
+  end
+
+  private
+  def set_product
+    @product = Product.find(params[:product_id])
   end
 end

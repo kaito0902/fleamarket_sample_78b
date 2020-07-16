@@ -1,7 +1,0 @@
-- if current_user.own_board?(product)
-  %div{:style => "display: inline; float: right;"}
-    = link_to icon('fas', 'pen'), edit_board_path(product), id: :"button-edit-#{product.id}"
-    = link_to icon('fas', 'trash-alt'), board_path(product), id: :"button-delete-#{product.id}",method: :delete, data: { confirm: '削除してよろしいですか？' }
-- else
-  %div{:style => "display: inline; float: right;"}
-    = render 'products/bookmark_area', product: product
