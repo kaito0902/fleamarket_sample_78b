@@ -1,2 +1,1 @@
-:erb
-  $('#bookmarks_buttons_<%= @product.id %>').html("<%= j(render partial: 'products/bookmark_area', locals: {product: @product}) %>");
+$('#bookmarks_buttons_#{@product.id}').html("#{j(render partial: 'products/bookmark_area', locals: {product: @product})}");

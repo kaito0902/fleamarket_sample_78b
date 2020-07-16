@@ -78,8 +78,9 @@
               = link_to "削除", product_path(@product.id) , method: :delete
           - else
             -# いいね機能
-            %div{id: "bookmarks_buttons_#{@product.id}"}
-              = render partial: 'products/bookmark_area', locals: { product: @product }
+            .product__topContent__itemBox__userButtonBox--edit
+              %div{id: "bookmarks_buttons_#{@product.id}"}
+                = render partial: 'products/bookmark_area', locals: { product: @product }
             .product__topContent__itemBox__buttonBox__rightBotton
               %i.fa.fa-flag
               不適切な商品の通報
