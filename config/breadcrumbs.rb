@@ -6,11 +6,13 @@ end
 # Issue list
 crumb :mypage do
   link "マイページ", mypages_path
+  parent :root
 end
-# crumb :category_index do
-#   link "カテゴリー一覧", categories_path
-# end
 
+crumb :bookmark do |bookmark|
+  link "いいね商品一覧", bookmarks_mypages_path(bookmark)
+  parent :mypage
+end
 # crumb : do
 #   link "お知らせ", _path
 #   parent :mypage
