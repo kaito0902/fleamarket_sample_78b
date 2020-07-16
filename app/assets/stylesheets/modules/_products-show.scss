@@ -15,10 +15,32 @@
       }
       &__imageBox{
         margin-top: 10px;
+        position: relative;
         &__mainImage{
           object-fit: cover;
           width: 100%;
           height: 350px;
+          vertical-align: bottom;
+        }
+        &__sold{
+          width: 0px;
+          height: 0px;
+          border-top: 60px solid #ea352d ;
+          border-right: 60px solid transparent;
+          border-bottom: 60px solid transparent;
+          border-left: 60px solid #ea352d ;
+          z-index:100;
+          position: absolute;
+          top: 0;
+          left: 0;
+          &__inner{
+            transform: rotate(-45deg);
+            font-size: 28px;
+            margin:-35px 0px 0px -55px;
+            color: #fff;
+            letter-spacing: 2px;
+            font-weight: 600;
+          }
         }
         &__subImages{
           margin-top: 10px;
@@ -28,6 +50,32 @@
             object-fit: cover;
             height: 85px;
             width: 25%;
+          }
+          &__subImage{
+            object-fit: cover;
+            height: 85px;
+            width: 25%;
+            position: relative;
+            &__sold{
+              width: 0px;
+              height: 0px;
+              border-top: 60px solid #ea352d ;
+              border-right: 60px solid transparent;
+              border-bottom: 60px solid transparent;
+              border-left: 60px solid #ea352d ;
+              z-index:100;
+              position: absolute;
+              top: 0;
+              left: 0;
+              &__inner{
+                transform: rotate(-45deg);
+                font-size: 28px;
+                margin:-35px 0px 0px -55px;
+                color: #fff;
+                letter-spacing: 2px;
+                font-weight: 600;
+              }
+            }
           }
         }
       }
@@ -230,6 +278,27 @@
           width: 100%;
           height: 150px;
           vertical-align: bottom;
+          position: relative;
+          &__sold{
+            width: 0px;
+            height: 0px;
+            border-top: 60px solid #ea352d ;
+            border-right: 60px solid transparent;
+            border-bottom: 60px solid transparent;
+            border-left: 60px solid #ea352d ;
+            z-index:100;
+            position: absolute;
+            top: 0;
+            left: 0;
+            &__inner{
+              transform: rotate(-45deg);
+              font-size: 28px;
+              margin:-35px 0px 0px -55px;
+              color: #fff;
+              letter-spacing: 2px;
+              font-weight: 600;
+            }
+          }
         }
         &__body{
           padding: 10px;
