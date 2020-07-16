@@ -7,6 +7,10 @@
       .product__topContent__itemBox__imageBox
         - @product.images.first(1).each do |url|
           = image_tag "#{url.url}", class: "product__topContent__itemBox__imageBox__mainImage"
+          -if url.product.buyer_id.present?
+            .product__topContent__itemBox__imageBox__sold
+              .product__topContent__itemBox__imageBox__sold__inner
+                SOLD
         .product__topContent__itemBox__imageBox__subImages
           - @product.images.drop(1).first(9).each do |url|
             = image_tag "#{url.url}", class: "product__topContent__itemBox__imageBox__subImages__subImage"

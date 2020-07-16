@@ -5,6 +5,10 @@
         .product__userRelated__productsBox__products__image
           = link_to product_path(a.product) do
             = image_tag "#{a.url}",class: "product__userRelated__productsBox__products__image"
+            -if a.product.buyer_id.present?
+              .product__userRelated__productsBox__products__image__sold
+                .product__userRelated__productsBox__products__image__sold__inner
+                  SOLD
         .product__userRelated__productsBox__products__body
           .product__userRelated__productsBox__products__body__name
             = i.name

@@ -1,27 +1,29 @@
 = render "/products/header"
 - breadcrumb :bookmark
 = render "layouts/breadcrumbs"
-= render "/mypages/left-menubar"
-.topMain__container__productBox
-  .topMain__container__head
-    %p いいね商品一覧
-  .topMain__container__productBox__lists
-    - @products.each do |product|
-      .topMain__container__productBox__lists__list
-        = link_to product_path(product.id) do
-          .topMain__container__productBox__lists__list__image
-            = image_tag "#{product.images[0].url}", size: '220x150'
-            -if product.buyer_id.present?
-              .topMain__container__productBox__lists__list__image__sold
-                .topMain__container__productBox__lists__list__image__sold__inner
-                  SOLD
-          .topMain__container__productBox__lists__list__body
-            %p.topMain__container__productBox__lists__list__body__name
-              = product.name
-            .topMain__container__productBox__lists__list__body__box
-              = product.price
-              円
-              .topMain__container__productBox__lists__list__body__box--like
-                = icon('fas', 'star', class: 'no')
-            %p.topMain__container__productBox__lists__list__body__tax
-              (税込)
+.myPageMain
+  = render "/mypages/left-menubar"
+  .bookMark
+    .bookMark__ProductBox
+      .bookMark__ProductBox__header
+        %p いいね商品一覧
+      .bookMark__ProductBox__lists
+        - @products.shuffle.first(30).each do |product|
+          .bookMark__ProductBox__lists__list
+            = link_to product_path(product.id) do
+              .bookMark__ProductBox__lists__list__image
+                = image_tag "#{product.images[0].url}", size: '220x150'
+                -if product.buyer_id.present?
+                  .bookMark__ProductBox__lists__list__image__sold
+                    .bookMark__ProductBox__lists__list__image__sold__inner
+                      SOLD
+              .bookMark__ProductBox__lists__list__body
+                %p.bookMark__ProductBox__lists__list__body__name
+                  = product.name
+                .bookMark__ProductBox__lists__list__body__box
+                  = product.price
+                  円
+                  .bookMark__ProductBox__lists__list__body__box--like
+                    = icon('fas', 'star', class: 'no')
+                %p.bookMark__ProductBox__lists__list__body__tax
+                  (税込)
