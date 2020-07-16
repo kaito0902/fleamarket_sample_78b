@@ -1,3 +1,4 @@
+= render "header" 
 .product
   .product__topContent
     .product__topContent__itemBox
@@ -76,23 +77,42 @@
           %i.fa.fa-flag
           不適切な商品の通報
       .product__topContent__itemBox__userButtonBox
-        .product__topContent__itemBox__userButtonBox--edit
         - if user_signed_in?
           - if current_user.id == @saler.id
             .product__topContent__itemBox__userButtonBox--edit
-              = link_to "編集ページ" 
+              = link_to "編集", edit_product_path(@product.id), method: :get        
             .product__topContent__itemBox__userButtonBox--destroy
-              = link_to "削除ページ" 
-
+              = link_to "削除", product_path(@product.id) , method: :delete
     .product__topContent__commentBox
-      %textarea.product__topContent__commentBox__text
-      .product__topContent__commentBox__caution
-        相手のことを考え丁寧なコメントを心がけましょう。
-        %br
-        不快な言葉遣いなどは利用制限や退会処分となることがあります。
-      %button.product__topContent__commentBox__submit
-        %i.fa.fa-comment
-        コメントする
+      - if current_user
+        = form_with(model: [@product, @comment], local: true, id: "new_comment") do |f|
+          = f.text_area :text, placeholder: "コメントする", class: "product__topContent__commentBox__text"
+          .product__topContent__commentBox__caution
+            相手のことを考え丁寧なコメントを心がけましょう。
+            %br
+            不快な言葉遣いなどは利用制限や退会処分となることがあります。
+          = button_tag type: "submit", class: "product__topContent__commentBox__submit" do
+            %i.fa.fa-comment
+            コメントする
+      - else
+        .product__topContent__commentBox__signin
+          %p コメントの投稿には、
+          = link_to "ログイン", new_user_session_path
+          または
+          = link_to "新規会員登録", new_user_registration_path
+          が必要です
+      %p.product__topContent__commentBox__head ＜コメント一覧＞
+      .product__topContent__commentBox__index
+        - if @comments
+          - @comments.each do |comment|
+            .product__topContent__commentBox__index__box
+              -# ユーザーの詳細が出来たらリンクにする
+              %span.product__topContent__commentBox__index__box--name= comment.user.nickname
+              - if comment.user.id == @product.saler_id
+                %span.product__topContent__commentBox__index__box--saler 出品者
+              %span.product__topContent__commentBox__index__box--date= comment.created_at.strftime("%Y-%m-%d %H:%M")
+              %p.product__topContent__commentBox__index__box--text= comment.text
+
   .product__topContent__link
     .product__topContent__link__previous
       < 前の商品
@@ -103,8 +123,4 @@
       = @category.name
     .product__userRelated__productsBox
       = render 'userRelated'
-      -# = render 'userRelated'
-      -# = render 'userRelated'
-      -# = render 'userRelated'
-      -# = render 'userRelated'
-
+=render "footer"

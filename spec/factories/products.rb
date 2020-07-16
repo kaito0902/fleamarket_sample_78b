@@ -3,7 +3,7 @@ FactoryBot.define do
     name              {"名前"}
     description       {"説明"}
     brand_id          {}
-    prefecture        {1}
+    prefecture        {"青森県"}
     day               {"abe"}
     price             {111111}
     buyer_id          {1}
