@@ -18,6 +18,12 @@ class Product < ApplicationRecord
   validates :day, presence: true
   validates :price, presence: true, numericality: {greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999}
 
+  def self.search(search)
+    return Product.all unless search
+    Product.where('name LIKE(?)', "%#{search}%")
+  end
+
+
   enum prefecture:{
     "   ":"   ",
     北海道:"北海道",青森県:"青森県",岩手県:"岩手県",宮城県:"宮城県",秋田県:"秋田県",山形県:"山形県",福島県:"福島県",
