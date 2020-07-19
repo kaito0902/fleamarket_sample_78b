@@ -1,6 +1,6 @@
 class CreditCardsController < ApplicationController
   require "payjp"
-  before_action :set_card
+  before_action :set_card, except: [:create]
 
   def index
     # # すでにクレジットカードが登録しているか？
@@ -37,13 +37,14 @@ class CreditCardsController < ApplicationController
   end
 
   def new
+    @card = CreditCard.where(user_id: current_user.id)
+    redirect_to credit_card_path(current_user.id) if @card.exists?
   end
 
   def create
     Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
-    customer = Payjp::Customer.create(card: params[:payjpToken])
-    @card = CreditCard.new(user_id: current_user.id, customer_id: customer.id, card_token: params[:payjpToken])
-  
+    customer = Payjp::Customer.create(card: params[:card_token])
+    @card = CreditCard.new(user_id: current_user.id, customer_id: customer.id, card_token: customer.default_card)
     if @card.save
       redirect_to root_path
     else
@@ -51,40 +52,22 @@ class CreditCardsController < ApplicationController
     end
   end
 
-  # def pay #payjpとCardのデータベース作成(チームのための記述です)
-  #   Payjp.api_key = Rails.application.credentials[:payjp][:secret_key]
-  #   if params['payjp-token'].blank?
-  #     redirect_to action: "new"
-  #   else
-  #     customer = Payjp::Customer.create(
-  #     card: params['payjp-token'],
-  #     metadata: {user_id: current_user.id}
-  #     ) 
-  #     @user_card = CreditCard.new(user_id: current_user.id, customer_id: customer.id, card_token: customer.default_card)
-  #     if @user_card.save
-  #       redirect_to credit_cards_path(current_user.id)
-  #     else
-  #       redirect_to action: "pay"
-  #     end
-  #   end
-  # end
-
   def destroy
     if @card.present?
-      Payjp.api_key = Rails.application.credentials[:payjp][:secret_key]
+      Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
       customer = Payjp::Customer.retrieve(@card.customer_id)
       customer.delete
       @card.delete
     end
-      redirect_to users_path (current_user)
+      redirect_to new_credit_card_path (current_user)
   end
 
   def show
-    card = current_user.credit_cards
+    card = current_user.credit_card
     if card.blank?
       redirect_to action: "new" 
     else
-      Payjp.api_key = "sk_test_fc71f6ba101c490a2a1099a7"
+      Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
       customer = Payjp::Customer.retrieve(card.customer_id)
       @customer_card = customer.cards.retrieve(card.card_token)
     end

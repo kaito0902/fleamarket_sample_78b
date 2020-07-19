@@ -1,25 +1,33 @@
+= render "/products/header"
+= render "/mypages/left-menubar"
+
 .show
   .show__frame
     .show__frame__title
       登録クレジットカード情報
-    .credit_card__list
-      .credit_card__list__title
-        クレジットカード一覧
-      .credit_card__list__frame
-        .credit_card_info
-          .credit_card_info__brand
-            = image_tag "", class: "credit_card_info__brand__img", alt: @card_brand
-          .credit_card_info__numbers
+    .card_list
+      .card_list__info
+        .card_list__info__title
+          クレジットカード一覧
+        .card_list__info__inner
+          .card_list__info__inner__image
+            = image_tag 'IC-chip.png', width: '60', height: '55'
+          .card_list__info__inner__brand
+            = image_tag "Visa.svg", width: '60', height: '55', class: "credit_card_info__brand__img", alt: @card_brand
+          .card_info__inner__numbers
             .number
               = "**** **** **** " + @customer_card.last4
+              - exp_month = @customer_card.exp_month.to_s
+              - exp_year = @customer_card.exp_year.to_s.slice(2,3)
             .expiration_date
               .expiration_date__title
                 有効期限
               .expiration_date__info
-                = @exp_month + " / " + @exp_year
-        .destroy__function
-          .destroy__function__link
-            = link_to credit_card_path, method: :delete, class: "destroy__function__link__btn" do 
-              削除する
-      .payment-details
-        = link_to "支払い方法について >", "", class: "payment-details__btn"
+                = exp_month + " / " + exp_year
+                .destroy__function
+                  .destroy__function__link
+                    = link_to credit_card_path, method: :delete, class: "destroy__function__link__btn" do
+                      削除する
+          .hands
+            = image_tag 'credithands',width: '1320', height: '1250'
+            

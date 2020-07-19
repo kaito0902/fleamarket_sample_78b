@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :set_product, except: [:index, :new, :create, :show]
+  before_action :set_product, except: [:index, :new, :create, :show, :update]
 
   def index
     @products = Product.all
@@ -45,6 +45,18 @@ class ProductsController < ApplicationController
     redirect_to root_path
   end
 
+  require 'payjp'
+
+  def purchase
+    Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+    Payjp::Charge.create(
+      amount: @products.price, 
+      card: params[:card_token],
+      currency: 'jpy')
+      @products.update(buyer_id: current_user.id)
+      redirect_to root_path, notice: "支払いが完了しました"
+  end
+
   private
   def product_params
     params.require(:product).permit(:name, :price, :description, :category_id, :brand_id, :condition_id, :delivery_charge_id, :prefecture, :day, :saler_id, :buyer_id, images_attributes: [:url, :_destroy, :id])
@@ -55,18 +67,16 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
   end
 
-  def purchase
-  end
 
-  def pay
-    Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
-    charge = Payjp::Charge.create(
-    amount: @product.price,
-    card: params['payjpToken'],
-    currency: 'jpy'
-    )
-    redirect_to action: :done
-  end
+  # def purchase
+  #   Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
+  #   charge = Payjp::Charge.create(
+  #   amount: @product.price,
+  #   card: params['card_token'],
+  #   currency: 'jpy'
+  #   )
+  #   redirect_to action: :done
+  # end
 
   def done
   end

@@ -101,7 +101,7 @@
             = link_to "#" do
               .topMain__container__productBox__lists__list__image
                 = image_tag "#{product.images[0].url}", size: '220x150'
-                -if product.saler_id.present?
+                -if product.buyer_id.present?
                   .topMain__container__productBox__lists__list__image__sold
                     .topMain__container__productBox__lists__list__image__sold__inner
                       SOLD

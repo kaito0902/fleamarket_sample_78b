@@ -11,12 +11,13 @@ Rails.application.routes.draw do
   root 'products#index'
 
   resources :products
-  resources :buyers, only: :index
+  resources :buyers
+  post 'purchase', to: 'buyers#purchase'
   resources :mypages, only: [:index, :show]
-  resources :credit_cards, only: [:new, :show, :create, :destroy] do
+  resources :credit_cards, only: [:new, :show, :create, :destroy, :index] do
     collection do
       post 'create', to: 'credit_cards#create'
-      # post 'pay', to: 'credit_cards#pay'
+      post 'purchase', to: 'credit_cards#purchase'
       post 'delete', to: 'credit_cards#delete'
     end
   end
