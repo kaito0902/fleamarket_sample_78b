@@ -111,7 +111,7 @@ span{
 
 .show{
   margin-top: 65px;
-  height:600px;
+  height:700px;
   background-color: #f8f8f8;
   float: left;
   &__frame{
@@ -211,11 +211,10 @@ span{
         right: -650px;
       }
 
-    .destroy-function {
+    .destroy_function {
       height: 300px;
       width: 250px;
       margin-top: 50px;
-    
 
       &__link {
         height: 60px;
@@ -223,13 +222,12 @@ span{
         background-color: lightseagreen;
         line-height: 60px;
         text-align: center;
-        margin: 40px auto 0;
+        margin: 80px 95px;
         border-radius: 30px;
 
         &__btn {
           text-decoration: none;
           color: red;
-          text-align: center;
           }
         }
       }
