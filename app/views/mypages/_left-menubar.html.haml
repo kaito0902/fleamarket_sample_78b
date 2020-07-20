@@ -11,6 +11,10 @@
             お知らせ
             = icon 'fas', 'chevron-right'
         %li
+          = link_to bookmarks_mypages_path, class: 'mypage-side-bar__list-item' do
+            いいね商品一覧
+            = icon 'fas', 'chevron-right'
+        %li
           = link_to new_product_path, class: 'mypage-side-bar__list-item' do
             出品する
             = icon 'fas', 'chevron-right'

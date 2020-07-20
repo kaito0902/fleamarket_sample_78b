@@ -15,19 +15,67 @@
       }
       &__imageBox{
         margin-top: 10px;
+        position: relative;
         &__mainImage{
           object-fit: cover;
           width: 100%;
           height: 350px;
+          vertical-align: bottom;
+        }
+        &__sold{
+          width: 0px;
+          height: 0px;
+          border-top: 60px solid #ea352d ;
+          border-right: 60px solid transparent;
+          border-bottom: 60px solid transparent;
+          border-left: 60px solid #ea352d ;
+          z-index:100;
+          position: absolute;
+          top: 0;
+          left: 0;
+          &__inner{
+            transform: rotate(-45deg);
+            font-size: 28px;
+            margin:-35px 0px 0px -55px;
+            color: #fff;
+            letter-spacing: 2px;
+            font-weight: 600;
+          }
         }
         &__subImages{
           margin-top: 10px;
           display: flex;
-          justify-content: center;
+          flex-wrap : wrap;
           &__subImage{
             object-fit: cover;
             height: 85px;
             width: 25%;
+          }
+          &__subImage{
+            object-fit: cover;
+            height: 85px;
+            width: 25%;
+            position: relative;
+            &__sold{
+              width: 0px;
+              height: 0px;
+              border-top: 60px solid #ea352d ;
+              border-right: 60px solid transparent;
+              border-bottom: 60px solid transparent;
+              border-left: 60px solid #ea352d ;
+              z-index:100;
+              position: absolute;
+              top: 0;
+              left: 0;
+              &__inner{
+                transform: rotate(-45deg);
+                font-size: 28px;
+                margin:-35px 0px 0px -55px;
+                color: #fff;
+                letter-spacing: 2px;
+                font-weight: 600;
+              }
+            }
           }
         }
       }
@@ -102,8 +150,9 @@
       }
       &__userButtonBox{
         display: flex;
+        justify-content: space-between;
         margin: 30px 0;
-        a{
+        &--edit a{
           display: block;
           margin-right: 10px;
           color: #fff;
@@ -111,6 +160,16 @@
           border-radius: 5px;
           font-size: 14px;
           background-color: #3CCACE;
+          text-decoration: none;
+        }
+        &--destroy a{
+          display: block;
+          margin-right: 10px;
+          color: #fff;
+          padding: 10px 40px;
+          border-radius: 5px;
+          font-size: 14px;
+          background-color:red;
           text-decoration: none;
         }
       }
@@ -134,13 +193,58 @@
         text-align: left;
       }
       &__submit{
-        margin-top: 40px;
+        margin-top: 16px;
         padding: 15px 100px;
         border-radius: 40px;
         color: #fff;
         background-color: #3CCACE;
         font-size: 18px;
         border: none;
+        cursor: pointer;
+      }
+      &__signin{
+        margin-top: 10px;
+        a {
+          text-decoration: none;
+          color: #3CCACE;
+          font-weight: bold;
+        }
+      }
+      &__head{
+        font-size: 24px;
+        margin-top: 16px;
+        cursor: pointer;
+      }
+      &__index{
+        max-height: 420px;
+        overflow: scroll;
+        margin: 0 40px;
+        padding: 0 5px;
+        &__box{
+          text-align: left;
+          padding: 5px 0;
+          &--name{
+            font-weight: bold;
+            margin-left: 4px;
+          }
+          &--saler{
+            font-size: 14px;
+            background-color: #3CCACE;
+            color: white;
+            text-shadow: 0 0 3px rgba(33,33,33,0.4);
+            padding: 2px;
+          }
+          &--date{
+            font-size: 12px;
+            float: right;
+            color: #555;
+          }
+          &--text{
+            background-color: whitesmoke;
+            padding: 8px;
+            white-space: pre-wrap;
+          }
+        }
       }
     }
     &__link{
@@ -174,6 +278,27 @@
           width: 100%;
           height: 150px;
           vertical-align: bottom;
+          position: relative;
+          &__sold{
+            width: 0px;
+            height: 0px;
+            border-top: 60px solid #ea352d ;
+            border-right: 60px solid transparent;
+            border-bottom: 60px solid transparent;
+            border-left: 60px solid #ea352d ;
+            z-index:100;
+            position: absolute;
+            top: 0;
+            left: 0;
+            &__inner{
+              transform: rotate(-45deg);
+              font-size: 28px;
+              margin:-35px 0px 0px -55px;
+              color: #fff;
+              letter-spacing: 2px;
+              font-weight: 600;
+            }
+          }
         }
         &__body{
           padding: 10px;

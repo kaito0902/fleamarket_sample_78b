@@ -5,4 +5,8 @@ class MypagesController < ApplicationController
   
   def show
   end
+
+  def bookmarks
+    @products = current_user.bookmark_products.includes(:saler)
+  end
 end

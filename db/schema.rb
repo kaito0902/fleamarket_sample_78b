@@ -24,6 +24,16 @@ ActiveRecord::Schema.define(version: 2020_07_19_092521) do
     t.index ["user_id"], name: "index_addresses_on_user_id"
   end
 
+  create_table "bookmarks", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "product_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["product_id"], name: "index_bookmarks_on_product_id"
+    t.index ["user_id", "product_id"], name: "index_bookmarks_on_user_id_and_product_id", unique: true
+    t.index ["user_id"], name: "index_bookmarks_on_user_id"
+  end
+
   create_table "brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -33,6 +43,14 @@ ActiveRecord::Schema.define(version: 2020_07_19_092521) do
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.string "ancestry"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "product_id"
+    t.text "text"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -76,10 +94,10 @@ ActiveRecord::Schema.define(version: 2020_07_19_092521) do
     t.integer "prefecture", null: false
     t.string "day", null: false
     t.integer "price", null: false
-    t.integer "saler_id"
-    t.integer "buyer_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "saler_id"
+    t.integer "buyer_id"
     t.index ["brand_id"], name: "index_products_on_brand_id"
     t.index ["category_id"], name: "index_products_on_category_id"
     t.index ["condition_id"], name: "index_products_on_condition_id"
@@ -109,6 +127,8 @@ ActiveRecord::Schema.define(version: 2020_07_19_092521) do
 
   add_foreign_key "addresses", "users"
   add_foreign_key "credit_cards", "users"
+  add_foreign_key "bookmarks", "products"
+  add_foreign_key "bookmarks", "users"
   add_foreign_key "images", "products"
   add_foreign_key "products", "brands"
   add_foreign_key "products", "categories"

@@ -161,6 +161,18 @@
             font-family: Arial,æ¸¸ã‚´ã‚·ãƒƒã‚¯ä½“,YuGothic,ãƒ¡ã‚¤ãƒªã‚ª,Meiryo,sans-serif;
           }
         }
+        select {
+          border: 1px solid #ccc;
+          border-radius: 4px;
+          box-sizing: border-box;
+          font-family: inherit;
+          font-size: inherit;
+          height: 48px;
+          margin: 0;
+          outline: none;
+          padding: 0 16px;
+          width: 640px;
+        }
         &__box {
           border: 1px solid #ccc;
           border-radius: 4px;
@@ -314,9 +326,8 @@
   }
 }
 .submit-button {
-  width:88%;
-  padding:40px;
-
+  width:100%;
+  padding: 40px;
   .btn--red {
     margin: 40px 0 0;
     background: #ea352d;
@@ -328,6 +339,20 @@
     font-size: 14px;
     transition: all ease-out .3s;
     text-align: center;
+  }
+  .btn--Blue {
+    display: block;
+    line-height: 48px;
+    font-size: 14px;
+    width: 45%;
+    text-align: center;
+    margin: 24px auto 0px;
+    color: white;
+    background-color: rgb(81, 81, 253);
+    &__main {
+      text-decoration: none;
+      color: rgb(0, 0, 0);
+    }
   }
   .btn--gray {
     display: block;

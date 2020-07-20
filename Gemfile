@@ -84,3 +84,5 @@ gem 'fog-aws'
 gem 'active_hash'
 gem 'payjp'
 gem  'dotenv-rails'
+
+gem 'gretel'
