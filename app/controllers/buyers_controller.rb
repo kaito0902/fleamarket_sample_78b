@@ -23,7 +23,6 @@ class BuyersController < ApplicationController
       customer: Payjp::Customer.retrieve(@card.customer_id),
       currency: 'jpy',
     )
-    # @products.update(product_params)
     @products.update(buyer_id: current_user.id)
       redirect_to root_path, notice: "支払いが完了しました"
   end
