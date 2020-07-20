@@ -81,17 +81,4 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
   end
 
-
-  # def purchase
-  #   Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
-  #   charge = Payjp::Charge.create(
-  #   amount: @product.price,
-  #   card: params['card_token'],
-  #   currency: 'jpy'
-  #   )
-  #   redirect_to action: :done
-  # end
-
-  def done
-  end
 end
