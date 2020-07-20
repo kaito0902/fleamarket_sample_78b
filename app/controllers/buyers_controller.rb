@@ -36,7 +36,7 @@ class BuyersController < ApplicationController
     ).merge(user_id: current_user.id)
   end
   def set_item
-    @products = Product.find(1)
+    @products = Product.find(params[:product_id])
   end
 
   def set_card

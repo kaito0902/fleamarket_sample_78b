@@ -23,8 +23,8 @@
       .product__topContent__itemBox__buyBotton
         - if user_signed_in?
           - unless current_user.id == @saler.id
-            = form_tag(action: :pay, method: :post) do
-          %script.payjp-button{:src => "https://checkout.pay.jp", :type => "text/javascript" ,"data-text" => "購入する" ,"data-key" => "pk_test_d02048c4b8f954aa38ce9646"}
+            -unless @product.buyer_id.present?
+              = link_to "購入する", product_buyers_path(@product)
         - else
           = link_to "ログインがまだな方はこちらからお願いします", new_user_session_path 
       .product__topContent__itemBox__description
@@ -49,11 +49,6 @@
                 = @brand.name
               - else
                 指定なし 
-          %tr
-            %th
-              商品のサイズ
-            %td
-              100個
           %tr
             %th
               商品の状態

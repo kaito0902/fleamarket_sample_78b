@@ -7,17 +7,20 @@
           購入内容の確認
         .purchase-details__wrapper__wrapper__product-content
           .purchase-details__wrapper__wrapper__product-content__image
-            = image_tag 'm65881494832_1.jpg', alt: '写真', height: '100px', width: '100px'
+            - @products.images.first(1).each do |url|
+              = image_tag "#{url.url}", alt: '写真', height: '100px', width: '100px'
           .purchase-details__wrapper__wrapper__product-content__text
             .purchase-details__wrapper__wrapper__product-content__text__box-top
-              【新品】iPhoneXRケース ベージュ おしゃれ チェック
+              = @products.name
             .purchase-details__wrapper__wrapper__product-content__text__box-bottom
-              (税込)¥1,280
+              (税込)¥
+              = @products.price
         .purchase-details__wrapper__wrapper__payment-amount
           .purchase-details__wrapper__wrapper__payment-amount__text
             支払い金額
           .purchase-details__wrapper__wrapper__payment-amount__price
-            ¥1,280
+            ¥
+            = @products.price
         .purchase-details__wrapper__wrapper__payment
           .purchase-details__wrapper__wrapper__payment__left-box
             .purchase-details__wrapper__wrapper__payment__left-box__top
@@ -41,7 +44,12 @@
             .purchase-details__wrapper__wrapper__shipping-address__left-box__top
               配送先
             .purchase-details__wrapper__wrapper__shipping-address__left-box__bottom
-              東京都千代田区神田神保町1-1-1
+              〒
+              = current_user.address.post_code
+              = current_user.address.prefecture
+              = current_user.address.city
+              = current_user.address.house_number
+              = current_user.address.building_name
           .purchase-details__wrapper__wrapper__shipping-address__right-box
             .purchase-details__wrapper__wrapper__shipping-address__right-box__text
               = link_to "変更する  ＞", class: "btn"

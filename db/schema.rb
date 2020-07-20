@@ -126,9 +126,9 @@ ActiveRecord::Schema.define(version: 2020_07_19_092521) do
   end
 
   add_foreign_key "addresses", "users"
-  add_foreign_key "credit_cards", "users"
   add_foreign_key "bookmarks", "products"
   add_foreign_key "bookmarks", "users"
+  add_foreign_key "credit_cards", "users"
   add_foreign_key "images", "products"
   add_foreign_key "products", "brands"
   add_foreign_key "products", "categories"
