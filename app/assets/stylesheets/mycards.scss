@@ -205,11 +205,7 @@ span{
         }
       }
     }
-      .hands{
-        position: absolute;
-        margin-top: -680px;
-        right: -650px;
-      }
+      
 
     .destroy_function {
       height: 300px;
@@ -230,6 +226,11 @@ span{
           color: red;
           }
         }
+      }
+      .hands{
+        position: absolute;
+        margin-top: -700px;
+        right: -780px;
       }
     }
   }

@@ -2,7 +2,7 @@ class CreditCard < ApplicationRecord
   # belongs_to :product
   belongs_to :user
 
-  # validates :name, presence: true
-  # validates :email, presence: true
+  validates :customer_id, presence: true
+  validates :card_token, presence: true
 
   end

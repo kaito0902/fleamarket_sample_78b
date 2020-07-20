@@ -24,10 +24,9 @@
                 有効期限
               .expiration_date__info
                 = exp_month + " / " + exp_year
-                .destroy_function
-                  .destroy_function__link
-                    = link_to credit_card_path, method: :delete, class: "destroy_function__link__btn" do
-                      削除する
           .hands
-            = image_tag 'credithands',width: '1320', height: '1250'
-            
+            = image_tag 'credithands'
+          .destroy_function
+            .destroy_function__link
+              = link_to credit_card_path, method: :delete, class: "destroy_function__link__btn" do
+                削除する

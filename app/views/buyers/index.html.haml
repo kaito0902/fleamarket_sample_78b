@@ -35,7 +35,7 @@
               = image_tag 'JCB.png', alt: '写真', height: '100px', width: '100px'
           .purchase-details__wrapper__wrapper__payment__right-box
             .purchase-details__wrapper__wrapper__payment__right-box__text
-              = link_to "変更する  ＞",new_credit_card_path, class:"btn"
+              %script.payjp-button{"data-key"=>ENV["PAYJP_PRIVATE_KEY"], "data-partial" => "true", :src => "https://checkout.pay.jp/", :type => "text/javascript"}
         .purchase-details__wrapper__wrapper__shipping-address
           .purchase-details__wrapper__wrapper__shipping-address__left-box
             .purchase-details__wrapper__wrapper__shipping-address__left-box__top
@@ -46,5 +46,4 @@
             .purchase-details__wrapper__wrapper__shipping-address__right-box__text
               = link_to "変更する  ＞", class: "btn"
         .purchase-details__wrapper__wrapper__purchase-button
-          %script.payjp-button{"data-key" => ENV["PAYJP_PRIVATE_KEY"], :src => "https://checkout.pay.jp", :type => "text/javascript"}
           = submit_tag "登録する",class:"btn--blue" 
