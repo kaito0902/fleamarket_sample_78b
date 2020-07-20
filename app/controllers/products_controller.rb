@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :set_product, except: [:index, :new, :create, :show,:search]
+  before_action :set_product, except: [:index, :new, :create, :show,:search,:update]
 
   def index
     @products = Product.all
@@ -9,7 +9,6 @@ class ProductsController < ApplicationController
 
   def show
     @product = Product.find(params[:id])
-    @products = Product.where(user_id:params[:id])
     @saler = @product.saler
     @category = @product.category
     @category2 = @category.products
@@ -52,6 +51,18 @@ class ProductsController < ApplicationController
     redirect_to root_path, notice:"商品を削除しました"
   end
 
+  require 'payjp'
+
+  def purchase
+    Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+    Payjp::Charge.create(
+      amount: @products.price, 
+      card: params[:card_token],
+      currency: 'jpy')
+      @products.update(buyer_id: current_user.id)
+      redirect_to root_path, notice: "支払いが完了しました"
+  end
+
   def bookmarks
     @products = current_user.bookmark_products.includes(:saler)
   end
@@ -69,4 +80,5 @@ class ProductsController < ApplicationController
   def set_product
     @product = Product.find(params[:id])
   end
+
 end

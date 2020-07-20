@@ -3,21 +3,19 @@
     %li
       .category__head
         %i.fas.fa-bars.category__head--icon
-        %span.category__head--title カテゴリーから探す
-        %i.fas.fa-bars.category__head--icon
-        %span.category__head--title ブランドから探す
+        %span.category__head--title カテゴリー
       %ul.category__parent.category__list
-        -# - @parents.each do |parent|
-        -#   %li
-        -#     = link_to "#", class: "category__parent--name" do
-        -#       %span= parent.name
-        -#     %ul.category__child.category__list
-        -#       - parent.children.each do |child|
-        -#         %li
-        -#           = link_to "#", class: "category__child--name" do
-        -#             %span= child.name
-        -#           %ul.category__grandchild.category__list
-        -#             - child.children.each do |grandchild|
-        -#               %li
-        -#                 = link_to "#", class: " category__child--name" do
-        -#                   %span= grandchild.name
+        - @parents.each do |parent|
+          %li
+            = link_to "#", class: "category__parent--name" do
+              %span= parent.name
+            %ul.category__child.category__list
+              - parent.children.each do |child|
+                %li
+                  = link_to "#", class: "category__child--name" do
+                    %span= child.name
+                  %ul.category__grandchild.category__list
+                    - child.children.each do |grandchild|
+                      %li
+                        = link_to "#", class: " category__child--name" do
+                          %span= grandchild.name

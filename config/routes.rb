@@ -16,15 +16,25 @@ Rails.application.routes.draw do
     collection do
       get 'search'
     end
+    resources :buyers, only: :index do
+      collection do
+        get 'index', to: 'buyers#index'
+        post 'purchase', to: 'buyers#purchase'
+      end
+    end
   end
-  resources :buyers, only: :index
   resources :mypages, only: [:index, :show] do
     collection do
       get :bookmarks
     end
   end
-  resources :mycards, only: [:new, :show]
-
+  resources :credit_cards, only: [:new, :show, :create, :destroy, :index] do
+    collection do
+      post 'create', to: 'credit_cards#create'
+      post 'purchase', to: 'credit_cards#purchase'
+      post 'delete', to: 'credit_cards#delete'
+    end
+  end
   resources :products, shallow: true do
     resource :bookmarks, only: %i[create destroy]
     get :bookmarks, on: :collection

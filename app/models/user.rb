@@ -10,8 +10,10 @@ class User < ApplicationRecord
   has_many :bookmarks, dependent: :destroy
   has_many :bookmark_products, through: :bookmarks, source: :product
 
+
   # ------クレジット機能追加時に使用-----
-  # has_one :credit_card, dependent: :destroy
+  has_one :credit_card, dependent: :destroy
+
   has_one :address, dependent: :destroy
 
   validates :nickname, presence: true, uniqueness: true

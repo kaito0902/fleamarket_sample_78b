@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_15_015049) do
+ActiveRecord::Schema.define(version: 2020_07_19_092521) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id", null: false
@@ -61,6 +61,15 @@ ActiveRecord::Schema.define(version: 2020_07_15_015049) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "credit_cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "customer_id", null: false
+    t.string "card_token", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_credit_cards_on_user_id"
+  end
+
   create_table "delivery_charges", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "charge_rule", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -82,7 +91,7 @@ ActiveRecord::Schema.define(version: 2020_07_15_015049) do
     t.bigint "category_id", null: false
     t.bigint "brand_id"
     t.bigint "delivery_charge_id", null: false
-    t.string "prefecture", null: false
+    t.integer "prefecture", null: false
     t.string "day", null: false
     t.integer "price", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -119,6 +128,7 @@ ActiveRecord::Schema.define(version: 2020_07_15_015049) do
   add_foreign_key "addresses", "users"
   add_foreign_key "bookmarks", "products"
   add_foreign_key "bookmarks", "users"
+  add_foreign_key "credit_cards", "users"
   add_foreign_key "images", "products"
   add_foreign_key "products", "brands"
   add_foreign_key "products", "categories"
