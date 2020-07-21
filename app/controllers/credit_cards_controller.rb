@@ -1,4 +1,5 @@
 class CreditCardsController < ApplicationController
+  Payjp.api_key = Rails.application.credentials.payjp[:PAYJP_PRIVATE_KEY]
   require "payjp"
   before_action :set_card, except: [:create]
 
