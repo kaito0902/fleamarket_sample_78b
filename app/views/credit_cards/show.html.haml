@@ -13,7 +13,7 @@
           .card_list__info__inner__image
             = image_tag 'IC-chip.png', width: '60', height: '55'
           .card_list__info__inner__brand
-            = image_tag "Visa.svg", width: '60', height: '55', class: "credit_card_info__brand__img", alt: @card_brand
+            = image_tag "Visa.svg", width: '60', height: '55', class: "credit_card_info__brand__img"
           .card_info__inner__numbers
             .number
               = "**** **** **** " + @customer_card.last4
