@@ -32,13 +32,13 @@ class CreditCardsController < ApplicationController
   end
 
   def show
-    @card = current_user.credit_card
-    if @card.blank?
+    card = current_user.credit_card
+    if card.blank?
       redirect_to action: "new" 
     else
       Payjp.api_key = Rails.application.credentials.dig(:payjp, :PAYJP_PRIVATE_KEY)
-      customer = Payjp::Customer.retrieve(@card.customer_id)
-      @customer_card = customer.cards.retrieve(@card.card_token)
+      customer = Payjp::Customer.retrieve(card.customer_id)
+      @customer_card = customer.cards.retrieve(card.card_token)
     end
   end
 
