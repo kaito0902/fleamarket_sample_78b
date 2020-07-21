@@ -1,32 +1,32 @@
 = render "/products/header"
 = render "/mypages/left-menubar"
 
-.show
-  .show__frame
-    .show__frame__title
-      登録クレジットカード情報
-    .card_list
-      .card_list__info
-        .card_list__info__title
-          クレジットカード一覧
-        .card_list__info__inner
-          .card_list__info__inner__image
-            = image_tag 'IC-chip.png', width: '60', height: '55'
-          .card_list__info__inner__brand
-            = image_tag "Visa.svg", width: '60', height: '55', class: "credit_card_info__brand__img", alt: @card_brand
-          .card_info__inner__numbers
-            .number
-              = "**** **** **** " + @customer_card.last4
-              - exp_month = @customer_card.exp_month.to_s
-              - exp_year = @customer_card.exp_year.to_s.slice(2,3)
-            .expiration_date
-              .expiration_date__title
-                有効期限
-              .expiration_date__info
-                = exp_month + " / " + exp_year
-          .hands
-            = image_tag 'credithands'
-          .destroy_function
-            .destroy_function__link
-              = link_to credit_card_path, method: :delete, class: "destroy_function__link__btn" do
-                削除する
+-# .show
+-#   .show__frame
+-#     .show__frame__title
+-#       登録クレジットカード情報
+-#     .card_list
+-#       .card_list__info
+-#         .card_list__info__title
+-#           クレジットカード一覧
+-#         .card_list__info__inner
+-#           .card_list__info__inner__image
+-#             = image_tag 'IC-chip.png', width: '60', height: '55'
+-#           .card_list__info__inner__brand
+-#             = image_tag "Visa.svg", width: '60', height: '55', class: "credit_card_info__brand__img", alt: @card_brand
+-#           .card_info__inner__numbers
+-#             .number
+-#               = "**** **** **** " + @customer_card.last4
+-#               - exp_month = @customer_card.exp_month.to_s
+-#               - exp_year = @customer_card.exp_year.to_s.slice(2,3)
+-#             .expiration_date
+-#               .expiration_date__title
+-#                 有効期限
+-#               .expiration_date__info
+-#                 = exp_month + " / " + exp_year
+-#           .hands
+-#             = image_tag 'credithands'
+-#           .destroy_function
+-#             .destroy_function__link
+-#               = link_to credit_card_path, method: :delete, class: "destroy_function__link__btn" do
+-#                 削除する
