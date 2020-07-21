@@ -16,7 +16,7 @@
             = image_tag "Visa.svg", width: '60', height: '55', class: "credit_card_info__brand__img"
           .card_info__inner__numbers
             .number
-              = "**** **** **** " + @customer_card.last4
+              -# = "**** **** **** " + @customer_card.last4
               - exp_month = @customer_card.exp_month.to_s
               - exp_year = @customer_card.exp_year.to_s.slice(2,3)
             .expiration_date
