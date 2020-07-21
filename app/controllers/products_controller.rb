@@ -54,7 +54,7 @@ class ProductsController < ApplicationController
   require 'payjp'
 
   def purchase
-    Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+    Payjp.api_key = Rails.application.credentials.dig(:payjp, :PAYJP_PRIVATE_KEY)
     Payjp::Charge.create(
       amount: @products.price, 
       card: params[:card_token],
