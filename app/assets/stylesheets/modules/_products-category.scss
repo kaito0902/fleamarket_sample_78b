@@ -4,7 +4,7 @@
 
 .category{
   padding-bottom: 10px;
-  margin-left: 20px;
+  margin-left: 200px;
   width: 340px;
   a{
     text-decoration: none;
@@ -13,13 +13,13 @@
     cursor: pointer;
     display: flex;
     &--icon{
+      padding: 4px;
       color: #3CCACE;
     }
     &--title{
       text-decoration: none;
       font-weight: bold;
       color: black;
-      margin-right: 10px;
     }
   }
   &__list{
@@ -40,6 +40,9 @@
         font-size: 13px;
         letter-spacing: 2px;
         border-bottom: 1px solid whitesmoke;
+        span{
+          font-size: 13px;
+        }
         &:hover{
           background-color: #3CCACE;
           span{
@@ -64,6 +67,9 @@
               font-size: 14px;
               letter-spacing: 2px;
               border-bottom: 1px solid whitesmoke;
+              span{
+                font-size: 14px;
+              }
               &:hover{
                 background-color: #3CCACE;
                 span{
