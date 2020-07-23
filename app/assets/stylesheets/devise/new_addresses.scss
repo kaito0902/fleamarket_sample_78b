@@ -14,9 +14,84 @@
     width:700px;
     height:100%;
     background-color:white;
+    .name2{
+      font-weight: bold;
+      font-size: 22px;
+      padding:18px;
+      border-bottom:1px solid lightgray;
+    }
+    &__user-name{
+      .name{
+        margin-top:20px;
+        justify-content: center;
+        display: flex;
+        font-weight: bold;
+        font-size: 15px;
+        &__required{
+          margin-left:10px;
+          background-color: red;
+          color: #EEEEEE;
+          font-size: 14px;
+          border-radius: 2px;
+          width:40px;
+        }
+      }
+      .name-box{
+        display: flex;
+        justify-content: center;
+        &__last-name{
+          &_box{
+            margin:20px 10px 10px 10px;
+            width:190px;
+            height:50px;
+          }
+        }
+        &__first-name{
+          &_box{
+            margin:20px 10px 10px 10px;
+            width:190px;
+            height:50px;
+          }
+        }
+      }
+    }
+    &__user-name__kana{
+      .name{
+        margin-top:20px;
+        justify-content: center;
+        display: flex;
+        font-weight: bold;
+        font-size: 15px;
+        &__required{
+          margin-left:10px;
+          background-color: red;
+          color: #EEEEEE;
+          font-size: 14px;
+          border-radius: 2px;
+          width:40px;
+        }
+      }
+      .name-box{
+        display: flex;
+        justify-content: center;
+        &__last-name{
+          &_box{
+            margin:20px 10px 10px 10px;
+            width:190px;
+            height:50px;
+          }
+        }
+        &__first-name{
+          &_box{
+            margin:20px 10px 10px 10px;
+            width:190px;
+            height:50px;
+          }
+        }
+      }
+    }
     &__post-code{
       padding-top:40px;
-      border-top:1px solid lightgray;
       .name{
         justify-content: center;
         display: flex;
