@@ -51,9 +51,14 @@
               = current_user.address.house_number
               = current_user.address.building_name
               %br
-              名前：
-              = current_user.last_name
-              = current_user.first_name
+              - if current_user.address.last_name.present?
+                名前:
+                = current_user.address.last_name
+                = current_user.address.first_name
+                %br
+                名前(フリガナ):
+                = current_user.address.last_name_kana
+                = current_user.address.first_name_kana
           .purchase-details__wrapper__wrapper__shipping-address__right-box
             .purchase-details__wrapper__wrapper__shipping-address__right-box__text
               
