@@ -45,6 +45,8 @@
 - ユーザー新規登録/ログイン機能
 - README編集
 
+![freamarket_78最終課題b　データベース設計ER図 (8)](https://user-images.githubusercontent.com/55152588/88256341-053b1280-ccf6-11ea-897e-82fb2344792c.png)
+
 # DB設計
 ## usersテーブル
 
