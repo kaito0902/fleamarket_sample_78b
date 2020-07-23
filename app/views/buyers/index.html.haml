@@ -50,8 +50,12 @@
               = current_user.address.city
               = current_user.address.house_number
               = current_user.address.building_name
+              %br
+              名前：
+              = current_user.last_name
+              = current_user.first_name
           .purchase-details__wrapper__wrapper__shipping-address__right-box
             .purchase-details__wrapper__wrapper__shipping-address__right-box__text
-              = link_to "変更する  ＞", class: "btn"
+              
         .purchase-details__wrapper__wrapper__purchase-button
           = submit_tag "購入",class:"btn--blue" 
