@@ -1,27 +1,17 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# 　　　　　フリーマーケットサイト
 
-Things you may want to cover:
+# 主な使用言語
+- Haml
+- SCSS 
+- Ruby
+- JavaScript
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+# 機能紹介
+- 新規会員登録・ログインをすると商品の購入、出品ができます。
+- 新規会員登録、ログインがお済みでない方も商品の一覧、詳細を閲覧可能です。
+- 決済方法はご自身のクレジットカードを登録して購入できます。
 
 # fleamarket_sample_78b DB設計
 ## usersテーブル
@@ -42,6 +32,8 @@ Things you may want to cover:
 
 ### Association
 - has_many :products
+- has_many :comments
+- has_many :bookmarks, dependent: :destroy
 - has_one :credit_card, dependent: :destroy
 - has_one :address, dependent: :destroy
 
@@ -49,24 +41,25 @@ Things you may want to cover:
 ## productsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|user|references|null: false, foreign_key: true|
 |name|string|null: false|
 |description|text|null: false|
 |condition|references|null: false, foreign_key: true|
 |category|references|null: false, foreign_key: true|
-|brand|references|null: false, foreign_key: true|
+|brand|references|foreign_key: true|
 |delivery_charge|references|null: false, foreign_key: true|
-|prefecture|string|null: false|
+|prefecture|integer|null: false|
 |day|string|null: false|
 |price|integer|null: false|
+|saler_id|integer|foreign_key: true|
+|buyer_iddit|integer|foreign_key: true|
 
 ### Association
 - has_many :images
+- has_many :bookmarks, dependent: :destroy
 - belongs_to :category
 - belongs_to :brand
 - belongs_to :delivery_charge
 - belongs_to :condition
-- belongs_to :user
 
 ## credit_cardsテーブル
 |Column|Type|Options|
@@ -89,7 +82,7 @@ Things you may want to cover:
 |building_name|string|null: false|
 
 ### Association
-- belongs_to :user
+- belongs_to :user, optional: true
 
 ## conditionsテーブル
 |Column|Type|Options|
@@ -110,8 +103,8 @@ Things you may want to cover:
 ## imagesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|product|references|null: false, foreign_key: true|
-|url|string|null: false|
+|product|references|foreign_key: true|
+|url|string||
 
 ### Association
 - belongs_to :product
@@ -120,7 +113,7 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
-|ancestry|integer|null: false|
+|ancestry|string|index: ture|
 
 ### Association
 - has_many :products
@@ -133,3 +126,24 @@ Things you may want to cover:
 
 ### Association
 - has_many :products
+
+## commentsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|user_id|integer||
+|product_id|integer||
+|text|text||
+
+### Association
+- belongs_to :product
+- belongs_to :user
+
+## bookmarksテーブル
+|Column|Type|Options|
+|------|----|-------|
+|user|references|null: false,foreign_key: true|
+|product|references|null: false,foreign_key: true|
+
+### Association
+- belongs_to :user
+- belongs_to :product
