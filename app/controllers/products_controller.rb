@@ -2,7 +2,7 @@ class ProductsController < ApplicationController
   before_action :set_product, except: [:index, :new, :create, :show,:search,:update]
 
   def index
-    @products = Product.all
+    @products = Product.all.order(id: "DESC")
     @parents = Category.where(ancestry: nil)
     @images = Image.all
   end

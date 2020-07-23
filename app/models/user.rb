@@ -52,5 +52,4 @@ class User < ApplicationRecord
     with: /\A\d{10,11}\z/,
     message: "はハイフンなし10桁or11桁で入力して下さい"
   }, allow_blank: true
-  validates :tel, presence: true, uniqueness: true
 end
