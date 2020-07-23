@@ -1,6 +1,7 @@
 # README
 
-# 　　　　　フリーマーケットサイト
+# 　　　　　　　　フリーマーケットサイト
+<img width="1440" alt="スクリーンショット 2020-07-23 10 35 23" src="https://user-images.githubusercontent.com/66351057/88250227-e03ca480-cce1-11ea-9ad8-cbf8de8642e2.png">
 
 # 主な使用言語
 - Haml
@@ -15,7 +16,7 @@
 
 # 制作メンバー&実装内容の紹介
 ## 平田 侑也
-- スクラムmaster
+- スクラムマスター
 - ユーザーマイページ
 - 商品一覧表示(マークアップ)
 - 商品購入機能（Payjp)
@@ -23,7 +24,7 @@
 - ER図編集
 ## 坂田 海斗
 - デプロイ担当、AWS EC2~S3導入
-- パンくず野郎
+- パンくず機能
 - お気に入り機能
 - 商品出品ページ
 - 商品出品機能
@@ -82,7 +83,7 @@
 |day|string|null: false|
 |price|integer|null: false|
 |saler_id|integer|foreign_key: true|
-|buyer_iddit|integer|foreign_key: true|
+|buyer_id|integer|foreign_key: true|
 
 ### Association
 - has_many :images
